@@ -27,18 +27,18 @@ builds:
 # Define custom subsampling logic for focusing on mis_c_case.
 subsampling:
   mis_c_focus:
-    # Focal samples for location
+    # Focal samples for division
     focal:
       group_by: "year month"
-      seq_per_group: 5
+      seq_per_group: 1
       # Use augur filter's query argument to filter strains with pandas-style logic expressions.
       # This can be easier to read than the corresponding filter by exclusion.
-      query: --query "(country == '{country}') & (division == '{division}')"
+      query: --query "(country == '{country}')"
 
     # Samples that are genetically related to the focal samples
     related:
       group_by: "country year month"
-      seq_per_group: 5
+      seq_per_group: 1
       exclude: "--exclude-where 'division={division}'"
       priorities:
         type: "proximity"
@@ -47,7 +47,7 @@ subsampling:
     # Contextual samples from the rest of the world
     contextual:
       group_by: "country year month"
-      seq_per_group: 2
+      seq_per_group: 1
       exclude: "--exclude-where 'division={division}'"
 
 # Here, you can specify what type of auspice_config you want to use
