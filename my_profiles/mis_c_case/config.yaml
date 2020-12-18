@@ -16,7 +16,7 @@ config:
   - include=my_profiles/mis_c_case/include.txt
 
 # Set the maximum number of cores you want Snakemake to use for this pipeline.
-cores: 2
+cores: 24
 
 # Always print the commands that will be run to the screen for debugging.
 printshellcmds: True
