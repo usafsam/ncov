@@ -73,6 +73,7 @@ location	Jalazone
 location	Tkoa
 location	Maale-Edumim
 location	Elkana
+location	Tulkarem
 
 # Nablus
 location	Majdal Bani Fadil
@@ -2465,17 +2466,28 @@ location	Cunha
 
 # Rio de Janeiro
 location	Resende
+location	Itaguaí
+location	Seropédica
 location	Queimados
 location	Nova Iguacu
 location	Mesquita
+location	Nilópolis
 location	Belford Roxo
+location	São João de Meriti
 location	Duque de Caxias
 location	Rio de Janeiro
+location	Três Rios
 location	Petropolis
 location	Niteroi
 location	Sao Goncalo
+location	Guapimirim
 location	Teresopolis
 location	Itaborai
+location	Maricá
+location	Nova Friburgo
+location	Cabo Frio
+location	Itaperuna
+location	Macaé
 
 # Piaui
 location	Parnaiba
@@ -3348,6 +3360,9 @@ location	Boston
 location	Ponce
 
 ### Canada
+# British Columbia
+location	Abbotsford
+
 # Ontario
 location	Toronto
 location	Ottawa
@@ -3381,7 +3396,6 @@ division	Ramallah
 division	West Bank
 division	Jerusalem
 division	Nablus
-division	Tulkarem
 division	Jenin
 
 ### Lebanon
@@ -3524,6 +3538,7 @@ division	Myanmar
 ### Thailand
 division	Trang
 division	Phuket
+division	Chonburi
 division	Samut Songkhram
 division	Samut Prakarn
 division	Bangkok
@@ -3531,6 +3546,7 @@ division	Nonthaburi
 division	Pathum Thani
 division	Nakhonnayok
 division	Thailand
+division	Phitsanulok
 
 ### Malaysia
 division	Selangor
@@ -3769,6 +3785,7 @@ division	Nigeria
 ### Tunisia
 division	Tunisia
 division	Gafsa
+division	Sfax
 division	Monastir
 division	Nabeul
 division	Soliman
@@ -4160,6 +4177,7 @@ division	Burgenland
 division	Pula
 division	Istria
 division	Croatia
+division	Zagreb
 division	Varaždin County
 division	Varazdin
 division	Split
@@ -4582,6 +4600,9 @@ division	Suriname
 ### Venezuela
 division	Venezuela
 
+### Trinidad
+division	Trinidad
+
 ### Curacao
 division	Curacao
 
@@ -4915,6 +4936,7 @@ country	Ecuador
 country	Colombia
 country	Suriname
 country	Venezuela
+country	Trinidad
 country	Curacao
 country	Aruba
 
