@@ -37,16 +37,16 @@ subsampling:
 
     # Samples that are genetically related to the focal samples
     related:
-      group_by: "country year month"
+      group_by: "region year"
       seq_per_group: 1
-      exclude: "--exclude-where 'division={division}'"
+      # exclude: "--exclude-where 'division={division}'"
       priorities:
         type: "proximity"
         focus: "focal"
 
     # Contextual samples from the rest of the world
     contextual:
-      group_by: "country year month"
+      group_by: "region year"
       seq_per_group: 1
       exclude: "--exclude-where 'division={division}'"
 

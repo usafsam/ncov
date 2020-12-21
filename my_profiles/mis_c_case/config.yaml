@@ -15,6 +15,7 @@ config:
   - metadata=data/metadata.tsv
   - include=my_profiles/mis_c_case/include.txt
 
+
 # Set the maximum number of cores you want Snakemake to use for this pipeline.
 cores: 24
 
