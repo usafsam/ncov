@@ -19,6 +19,8 @@
 #   snakemake --profile nextstrain_profiles/nextstrain all_regions
 # to produce the final Auspice files!
 
+ruleorder: dated_json > finalize
+
 def get_todays_date():
     from datetime import datetime
     date = datetime.today().strftime('%Y-%m-%d')
@@ -232,6 +234,11 @@ rule dated_json:
     output:
         dated_auspice_json = "auspice/ncov_{build_name}_{date}.json",
         dated_tip_frequencies_json = "auspice/ncov_{build_name}_{date}_tip-frequencies.json"
+    wildcard_constraints:
+        # Allow build names to contain alphanumeric characters, underscores, and hyphens
+        # but not special strings used for Nextstrain builds.
+        build_name = r'(?:[a-zA-Z0-9-_](?!(tip-frequencies|gisaid|zh|\d{4}-\d{2}-\d{2})))+',
+        date = r"[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]"
     conda: config["conda_environment"]
     shell:
         """
