@@ -14,7 +14,7 @@
 builds:
   # Focus on King County (location) in Washington State (division) in the USA (country)
   # with a build name that will produce the following URL fragment on Nextstrain/auspice:
-  usafsam_global-context:
+  usafsam:
     subsampling_scheme: usafsam-global
     geographic_scale: country
     region: North America
@@ -30,8 +30,7 @@ subsampling:
       seq_per_group: 2000
       # Use augur filter's query argument to filter strains with pandas-style logic expressions.
       # This can be easier to read than the corresponding filter by exclusion.
-      exclude: "--exclude-where 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine'"
-
+      exclude: "--exclude-where 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=U.S. Air Force School of Aerospace Medicine'"
     # Samples that are genetically related to the focal samples
     related:
       group_by: "region year"
@@ -45,7 +44,7 @@ subsampling:
     contextual:
       group_by: "region year"
       seq_per_group: 2
-      exclude: "--exclude-where 'region={region}' 'submitting_lab=Public Health, United States Air Force School of Aerospace Medicine'"
+      exclude: "--exclude-where 'region={region}' 'submitting_lab=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab=United States Air Force School of Aerospace Medicine' 'submitting_lab=U.S. Air Force School of Aerospace Medicine'"
       priorities:
         type: "proximity"
         focus: "usafsam"
