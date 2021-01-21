@@ -1,5 +1,4 @@
 # This is where we define which builds we'd like to run.
-# This example includes 4 separate builds, ranging from the regional (global) to location (county) level.
 # You can comment-out, remove, or add as many builds as you'd like.
 
 # Each build needs a name, a defined subsampling process, and geographic attributes used for subsampling.
@@ -12,29 +11,30 @@
 # In this example, we use these default methods. See other templates for examples of how to customize this subsampling scheme.
 
 builds:
-  # Focus on King County (location) in Washington State (division) in the USA (country)
   # with a build name that will produce the following URL fragment on Nextstrain/auspice:
   usafsam:
-    subsampling_scheme: usafsam-global
-    geographic_scale: country
+    subsampling_scheme: usafsam-all
+    # geographic_scale: country
     region: North America
     country: USA
 
 
 # Define custom subsampling logic for county-level builds.
 subsampling:
-  usafsam-global:
-    # Focal samples for location
+  usafsam-all:
+    # Focal samples which are all USAFSAM
     usafsam:
-      group_by: "submitting_lab year"
+      group_by: "submitting_lab"
       seq_per_group: 2000
       # Use augur filter's query argument to filter strains with pandas-style logic expressions.
       # This can be easier to read than the corresponding filter by exclusion.
-      exclude: "--exclude-where 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=U.S. Air Force School of Aerospace Medicine'"
-    # Samples that are genetically related to the focal samples
+      # exclude: "--exclude-where 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=U.S. Air Force School of Aerospace Medicine'"
+      query: --query '(submitting_lab == ["United States Air Force School of Aerospace Medicine","Public Health, United States Air Force School of Aerospace Medicine","U.S. Air Force School of Aerospace Medicine"])'
+  
+  # Samples that are genetically related to the focal samples
     related:
       group_by: "region year"
-      seq_per_group: 5
+      seq_per_group: 2
       exclude: "--exclude-where 'region!={region}'"
       priorities:
         type: "proximity"
@@ -44,7 +44,7 @@ subsampling:
     contextual:
       group_by: "region year"
       seq_per_group: 2
-      exclude: "--exclude-where 'region={region}' 'submitting_lab=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab=United States Air Force School of Aerospace Medicine' 'submitting_lab=U.S. Air Force School of Aerospace Medicine'"
+      exclude: "--exclude-where 'region={region}'"
       priorities:
         type: "proximity"
         focus: "usafsam"
