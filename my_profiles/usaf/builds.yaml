@@ -33,8 +33,9 @@ subsampling:
   
   # Samples that are genetically related to the focal samples
     related:
-      group_by: "region year"
-      seq_per_group: 2
+      group_by: "region month"
+      # seq_per_group: 3
+      max_sequences: 500
       exclude: "--exclude-where 'region!={region}'"
       priorities:
         type: "proximity"
@@ -42,8 +43,9 @@ subsampling:
 
     # Contextual samples from the rest of the world
     contextual:
-      group_by: "region year"
-      seq_per_group: 2
+      group_by: "region month"
+      # seq_per_group: 2
+      max_sequences: 250
       exclude: "--exclude-where 'region={region}'"
       priorities:
         type: "proximity"
@@ -54,5 +56,5 @@ subsampling:
 # If you want to specify specific files for each build - you can!
 # See the 'example_advanced_customization' builds.yaml
 files:
-  auspice_config: "my_profiles/example/my_auspice_config.json"
-  description: "my_profiles/example/my_description.md"
+  auspice_config: "my_profiles/usaf/my_auspice_config.json"
+  description: "my_profiles/usaf/my_description.md"

@@ -1,8 +1,8 @@
 {
-  "title": "Practice USAFSAM Build",
+  "title": "USAFSAM SC2 Genome Sequencing Diversity",
   "build_url": "https://github.com/friesac/ncov/",
   "maintainers": [
-    {"name": "Tony Fries and Padraic Fanning", "url": "www.myurl.com"}
+    {"name": "USAFSAM/PH", "url": "www.myurl.com"}
   ],
   "colorings": [
     {
