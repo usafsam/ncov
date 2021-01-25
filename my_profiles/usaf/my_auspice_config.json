@@ -111,7 +111,8 @@
     "country",
     "region",
     "host",
-    "author"
+    "author",
+    "submitting_lab"
   ],
   "panels": [
     "tree",
