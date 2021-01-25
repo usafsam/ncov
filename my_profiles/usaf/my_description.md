@@ -1,2 +1,2 @@
-# These data represent USAFSAM sequencing: 
-Data are put in context with related North American diversity as well as contentual global diversity.
+# These data represent primarily USAFSAM sequencing:
+Data are put in context with related Ohio, US, and Global representative sequences. 
