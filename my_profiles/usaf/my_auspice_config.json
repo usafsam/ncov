@@ -1,6 +1,6 @@
 {
   "title": "USAFSAM SC2 Genome Sequencing Diversity",
-  "build_url": "https://github.com/friesac/ncov/",
+  "build_url": "https://github.com/usafsam/ncov/",
   "maintainers": [
     {"name": "USAFSAM/PH", "url": "www.myurl.com"}
   ],
