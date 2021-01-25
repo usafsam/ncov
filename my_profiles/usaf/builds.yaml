@@ -18,6 +18,14 @@ builds:
     region: North America
     country: USA
 
+  # Build with all Ohio Sequences with USAFSAM focus
+  ohio:
+    subsampling_scheme: usafsam-ohio
+    geographic_scale: division
+    region: North America
+    country: USA
+    division: Ohio
+
 
 # Define custom subsampling logic for county-level builds.
 subsampling:
@@ -34,7 +42,7 @@ subsampling:
   # Samples that are genetically related to the focal samples
     related:
       group_by: "region month"
-      # seq_per_group: 3
+      # seq_per_group: 25
       max_sequences: 500
       exclude: "--exclude-where 'region!={region}'"
       priorities:
@@ -44,13 +52,35 @@ subsampling:
     # Contextual samples from the rest of the world
     contextual:
       group_by: "region month"
-      # seq_per_group: 2
-      max_sequences: 250
-      exclude: "--exclude-where 'region={region}'"
+      # seq_per_group: 10
+      max_sequences: 500
+      # exclude: "--exclude-where 'region={region}'"
+      # priorities:
+      #   type: "proximity"
+      #   focus: "usafsam"
+
+  usafsam-ohio:
+    # Focal samples which have all Ohio specimens
+    ohio:
+      group_by: "division month"
+      # seq_per_group: 10
+      max_sequences: 500
+      query: --query '(division == "Ohio")'
+
+    # Samples genetically related to Ohio Focal samples
+    related:
+      group_by: "region month"
+      max_sequences: 500
+      query: --query '(division != "Ohio")'
       priorities:
         type: "proximity"
-        focus: "usafsam"
+        focus: "ohio"
 
+    # Fill out the rest of the globe
+    contextual:
+      group_by: "region month"
+      max_sequences: 500
+ 
 # Here, you can specify what type of auspice_config you want to use
 # and what description you want. These will apply to all the above builds.
 # If you want to specify specific files for each build - you can!
