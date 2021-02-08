@@ -609,7 +609,7 @@ def adjust_to_database(data): #TODO: temporary solution, needs reworking
 
                         if division in duplicates:
                             print("Attention duplicate: " + bold(division) + " found in " + bold(duplicates[division][0]) + " and " + bold(duplicates[division][1]))
-                            print("Suggestion: select one and adjust database by deleting duplicate (no better solution due to missing additional info")
+                            print("Suggestion: select one and adjust database by deleting duplicate (check additional info for zip code!)")
                         
                         if location in location_to_arrondissement and division == location_to_arrondissement[location]: #consistent with dataset
                             continue
@@ -650,9 +650,10 @@ def adjust_to_database(data): #TODO: temporary solution, needs reworking
                             #div_to_loc[variants[division]] = (region, country, location_to_arrondissement[variants[division]]) #then to location
                             location_to_correct.append(((region, country, division, location, region, country, location_to_arrondissement[variants[division]], variants[division])))
                             continue
+
                         print("Missing division in " + country + " database: " + bold(division))
                         if location != "":
-                        	print("Missing location in " + location + " database: " + bold(location))
+                        	print("Missing location in " + country + " database: " + bold(location))
 
                 data = correct_data(data, "division", division_to_correct)
                 data = correct_data(data, "location", location_to_correct)
@@ -690,6 +691,7 @@ def manual_adjustments(data):
                             location2 = location
                         if location_correct == "*":
                             location_correct = location
+
                         if region == region2 and country == country2 and division == division2 and location == location2:
                             seqs_to_correct.append((region, country, division, location, region_correct, country_correct, division_correct, location_correct))
                             print("Manual adjustment: " + bold("/".join([region, country, division, location])) + " -> " + bold("/".join([region_correct, country_correct, division_correct, location_correct])))
@@ -972,7 +974,7 @@ def check_for_missing(data):
                 if division not in ordering["division"] or division not in lat_longs["division"]:
                     s = bold(division)
                     name0 = ""
-                    if country in hierarchical_ordering[region]:
+                    if country in hierarchical_ordering.get(region, ""):
                         name0 = check_similar(hierarchical_ordering[region][country], division, "division")
                     if division not in ordering["division"] and division in lat_longs["division"]:
                         s = s + " (only missing in ordering => auto-added to color_ordering.tsv)"
@@ -1151,14 +1153,24 @@ def find_place(geo_level, place, full_place, geolocator):
     typed_place = full_place
     redo = True
     while redo == True:
-        print("\nCurrent place for missing {}:\t".format(geo_level) + full_place)
+
         new_place = ask_geocoder(typed_place, geolocator)
 
         if str(new_place) == 'None':
+            print("\nCurrent place for missing {}:\t".format(geo_level) + full_place)
             print("The place as currently written could not be found.")
             answer = 'n'
         else:
-            print("Geopy suggestion: "+ new_place.address)
+            new_place_string = new_place.address
+            full_place_string = full_place
+            for level in full_place.split(", "):
+                if level.lower() in new_place_string.lower():
+                    new_place_string = bold(level).join(new_place_string.split(level))
+                    full_place_string = bold(level).join(full_place_string.split(level))
+
+            print("\nCurrent place for missing {}:\t".format(geo_level) + full_place_string)
+
+            print("Geopy suggestion: "+ new_place_string)
             answer = input('Is this the right place? Type y or n: ')
 
         if answer.lower() == 'y':
@@ -1349,21 +1361,26 @@ if __name__ == '__main__':
 
 
     ##### Bonus step: Print out all collected annotations - if considered correct, they can be copied by the user to annotations.tsv
+    with open(path_to_output_files+"new_annotations.tsv", 'w') as out:
+        out.write("\n".join(sorted(additions_to_annotation)))
+    print("New annotation additions written out to "+path_to_output_files+"new_annotations.tsv")
+
     # Only print line if not yet present
     # Print warning if this GISAID ID is already in the file
+    lines_exclude = ["title", "authors", "paper_url", "genbank_accession", "purpose_of_sequencing"]
     annot_lines_to_write = []
     for line in additions_to_annotation:
         if line in annotations:
             continue
         #print(line)
-        if "=" not in line:
-            annot_lines_to_write.append(line)
         if len(line.split("\t")) == 4:
-            number_of_occurences = annotations.count(line.split("\t")[1])
-            irrelevant_occurences = sum([(line.split("\t")[1] + "\t" + s) in annotations for s in ["title", "authors", "paper_url", "genbank_accession"]])
-            if number_of_occurences > irrelevant_occurences:
-                print("Warning: " + line.split("\t")[1] + " already exists in annotations!")
+            epi = line.split("\t")[1]
+            if epi in annotations:
+                number_of_occurences = annotations.count(line.split("\t")[1])
+                irrelevant_occurences = sum([(line.split("\t")[1] + "\t" + s) in annotations for s in lines_exclude])
+                if number_of_occurences > irrelevant_occurences:
+                    for l in annotations.split("\n"):
+                        if epi in l:
+                            if not l.startswith("#"):
+                                print("Warning: " + epi + " already exists in annotations! (" + bold(line.split("\t")[2]) + " " + line.split("\t")[3] + " vs " + bold(l.split("\t")[2]) + " " + l.split("\t")[3] + ")")
 
-    with open(path_to_output_files+"new_annotations.tsv", 'w') as out:
-        out.write("\n".join(sorted(annot_lines_to_write)))
-    print("New annotation additions written out to "+path_to_output_files+"new_annotations.tsv")

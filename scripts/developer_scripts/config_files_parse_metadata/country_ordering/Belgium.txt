@@ -1058,7 +1058,6 @@ Dalhem
 	Dalhem
 	Feneur
 	Mortroux
-	Neufchâteau
 	Saint-André
 	Warsage
 Esneux
@@ -1398,7 +1397,6 @@ Gingelom
 	Kortijs
 	Mielen-boven-Aalst
 	Montenaken
-	Muizen
 	Niel-bij-Sint-Truiden
 	Vorsen
 Halen
@@ -1630,7 +1628,7 @@ Wellen
 
 ---------------
 
-### Luxembourg
+### Luxembourg BE
 
 # Arlon
 Arlon
@@ -3200,6 +3198,7 @@ Wevelgem
 	Gullegem
 	Moorsele
 	Wevelgem
+	Herthoek
 Zwevegem
 	Heestert
 	Moen
