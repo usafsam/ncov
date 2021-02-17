@@ -4,11 +4,7 @@ benchmarks/
 logs/
 results/
 build/
-<<<<<<< Updated upstream
 # auspice/
-=======
-#auspice/
->>>>>>> Stashed changes
 data/*
 defaults/colors.tsv
 defaults/colors_*.tsv
