@@ -42,7 +42,6 @@ Europe/Austria/Salzburg/Kramsach	Europe/Austria/Tyrol/Kramsach
 Europe/Austria/Salzburg/Altmünster	Europe/Austria/Upper Austria/Altmünster
 Europe/Austria/Salzburg/Haizing	Europe/Austria/Upper Austria/Haizing
 Europe/Austria/Salzburg/Attnang-Puchheim	Europe/Austria/Upper Austria/Attnang-Puchheim
-Europe/France/Picardie/Amiens	Europe/France/Hauts de France/Amiens
 Europe/France/Centre-Val de Loire/Angers	Europe/France/Pays de la Loire/Angers
 Europe/France/Occitanie/Marseille	Europe/France/Provence-Alpes-Côte d'Azur/Marseille
 Europe/France/Poitou Charentes/Saintes	Europe/France/Nouvelle-Aquitaine/Saintes
@@ -52,3 +51,50 @@ North America/USA/Unknown/	North America/USA/USA/
 Europe/Italy/South Tyrol/*	Europe/Italy/Trentino-Alto Adige/Autonomous Province of Bolzano
 Europe/France/Nord Pas de Calais/Dunkerque	Europe/France/Hauts de France/Dunkerque
 Europe/France/Picardie/*	Europe/France/Hauts de France/*
+Italy/Apulia/Bari/	Europe/Italy/Apulia/Bari
+North America/USA/Texas Terry/*	North America/USA/Texas/Terry County
+North America/USA/Texas Mclennan/*	North America/USA/Texas/Mclennan County
+Asia/Palestine/West Bank/Ramallah	Asia/Palestine/Ramallah and al-Bireh Governorate/Ramallah
+Africa/Mayotte/Mayotte/Mamoudzou	Europe/France/Mayotte/Mamoudzou
+Africa/Mayotte/Mamoudzou/	Europe/France/Mayotte/Mamoudzou
+South America/Guyane Francaise/Cayenne/	Europe/France/French Guiana/Cayenne
+South America/Guyane Francaise/Guyane Francaise/	Europe/France/French Guiana/
+Europe/France/Centre-Val de Loire/Nantes	Europe/France/Pays de la Loire/Nantes
+Asia/Israel/Central District/Bat Yam	Asia/Israel/Tel Aviv District/Bat Yam
+Asia/Israel/Central District/Herzelia	Asia/Israel/Tel Aviv District/Herzelia
+Asia/Israel/Jerusalem/Maale Edomim	Asia/Palestine/West Bank/Maale-Edumim
+Asia/Israel/Judea and Samaria/Ariel	Asia/Palestine/West Bank/Ariel
+Europe/Serbia/Gracanica/	Europe/Kosovo/Pristina/Gracanica
+Europe/Serbia/Lipljan/	Europe/Kosovo/Pristina/Lipljan
+Europe/Serbia/Strpce/	Europe/Kosovo/Ferizaj/Strpce
+South America/Brazil/Southeast/Minas Gerais	South America/Brazil/Minas Gerais/
+Europe/Belgium/Turnhout/Vorst	Europe/Belgium/Brussels/Forest
+Europe/Lithuania/Ukmergės R./	Europe/Lithuania/Vilnius/Ukmerge
+Europe/Lithuania/Širvintų R./	Europe/Lithuania/Vilnius/Širvintų rajono savivaldybė
+Europe/Lithuania/Kretingos R./	Europe/Lithuania/Klaipedos Apskritis/Kretingos rajono savivaldybė
+Europe/Lithuania/Molėtų R./	Europe/Lithuania/Utena/Molėtų rajono savivaldybės
+Europe/Lithuania/Zarasų R./	Europe/Lithuania/Utena/Zarasų rajono savivaldybė
+Europe/Belgium/Sint-Amansberg/	Europe/Belgium/Gent/Sint-Amandsberg
+Europe/Belgium/Velenje/	Europe/Slovenia/Velenje/
+Europe/Belgium/Bekkenvoort/	Europe/Belgium/Leuven/Bekkevoort
+Europe/Belgium/Wilsbeke/	Europe/Belgium/Tielt/Wielsbeke
+Europe/Belgium/Faulx-Les-Tombes/	Europe/Belgium/Namur/Faulx-les-Tombes
+Europe/Belgium/Berchem-Sainte-Agath/	Europe/Belgium/Brussels/Berchem-Sainte-Agathe
+Europe/Belgium/Raalte/	Europe/Netherlands/Overijssel/Raalte
+North America/Costa Rica/Alajuela/Santiago	North America/Costa Rica/Alajuela/Santiago (Alajuela)
+North America/Costa Rica/Alajuela/San Isidro	North America/Costa Rica/Alajuela/San Isidro (Alajuela)
+North America/Costa Rica/Cartago/San Diego	North America/Costa Rica/Cartago CR/San Diego CR
+South America/Ecuador/Santo Domingo de los Tsachilas/Santo Domingo	South America/Ecuador/Santo Domingo de los Tsachilas/Santo Domingo de los Colorados
+Europe/Belgium/Kappelen/	Europe/Belgium/Antwerpen/Kapellen
+Europe/Belgium/Fontaine-l'Evêque/	Europe/Belgium/Charleroi/Fontaine-l'Évêque
+Europe/Belgium/Montigny-le-Tileul/	Europe/Belgium/Charleroi/Montigny-le-Tilleul
+North America/Puerto Rico/Puerto Rico/*	North America/USA/Puerto Rico/*
+Africa/Gaborone/Lobatse/	Africa/Botswana/Lobatse/
+Africa/South Africa/Eastern Cape/Cape Winelands	Africa/South Africa/Western Cape/Cape Winelands
+Africa/South Africa/Eastern Cape/Middelburg Municipal Clinic	Africa/South Africa/Eastern Cape/Middleburg
+North America/USA/Wisconsin/Chisago County	North America/USA/Minnesota/Chisago County
+North America/USA/Wisconsin/Pine County	North America/USA/Minnesota/Pine County
+North Macedonia/Kochani/Kochani/	Europe/North Macedonia/Eastern Region/Kochani
+South America/French Guiana/Cayenne/	Europe/France/French Guiana/Cayenne GF
+North Macedonia/Kavadarci/Kavadarci/	Europe/North Macedonia/Kavadarci/Kavadarci
+Europe/Belgium/Niewerkerken/	Europe/Belgium/Hasselt/Nieuwerkerken
