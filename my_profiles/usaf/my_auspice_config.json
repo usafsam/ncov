@@ -112,7 +112,8 @@
     "region",
     "host",
     "author",
-    "submitting_lab"
+    "submitting_lab",
+    "pangolin_lineage"
   ],
   "panels": [
     "tree",
