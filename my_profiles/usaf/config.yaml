@@ -11,8 +11,8 @@ configfile:
   - my_profiles/usaf/builds.yaml # Pull in our list of desired builds
 
 config:
-  - sequences=/sample/tmp-tf-ton01/workspace/nextstrain_data/sequences_2021-02-05_08-24.fasta
-  - metadata=/sample/tmp-tf-ton01/workspace/nextstrain_data/metadata_2021-02-05_19-03.tsv
+  - sequences=/sample/tmp-tf-ton01/workspace/sequences_2021-02-17_08-34.fasta
+  - metadata=/sample/tmp-tf-ton01/workspace/metadata_2021-02-17_08-32.tsv
 
 # Set the maximum number of cores you want Snakemake to use for this pipeline.
 cores: 12
