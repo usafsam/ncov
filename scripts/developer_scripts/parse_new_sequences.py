@@ -80,7 +80,7 @@ def read_data(path, path_to_metadata):
         if file.startswith("metadata-additions"):
             with open(path + file) as f:
                 metadata_additions = f.readlines()
-            with open(path_to_metadata + "metadata.tsv") as f:
+            with open(path_to_metadata + "downloaded_gisaid.tsv") as f:
                 metadata = f.read()
             header = metadata_additions[0].strip().split("\t")
             for line in metadata_additions[1:]:
@@ -290,7 +290,7 @@ def collect_labs(data, table_file_name):
         if country not in lab_dictionary:
             lab_dictionary[country] = {}
         if description in lab_dictionary[country]:
-            print("Warning: lab description is found two times in excel table in same country (" + country + ", " + description + ")" )
+            print("Warning: lab description is found two times in excel table in same country (" + str(country) + ", " + str(description) + ")" )
         lab_dictionary[country][description.lower()] = handle
 
 
