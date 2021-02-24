@@ -10,6 +10,12 @@
 
 # In this example, we use these default methods. See other templates for examples of how to customize this subsampling scheme.
 
+inputs:
+  - name: "gisaid"
+    metadata: /sample/tmp-tf-ton01/workspace/metadata_2021-02-22_10-00.tsv
+    sequences: /sample/tmp-tf-ton01/workspace/sequences_2021-02-22_08-38.fasta
+
+
 builds:
   # with a build name that will produce the following URL fragment on Nextstrain/auspice:
   usafsam:
