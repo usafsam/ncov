@@ -7,14 +7,14 @@
 # If a parameter is not defined here, it will fall back to the default value.
 
 configfile:
-  - defaults/parameters.yaml # Pull in the default values
-  - my_profiles/usaf/builds.yaml # Pull in our list of desired builds
+- defaults/parameters.yaml   # Pull in the default values
+- my_profiles/usaf/builds.yaml   # Pull in our list of desired builds
 
 # Set the maximum number of cores you want Snakemake to use for this pipeline.
 cores: 12
 
 # Always print the commands that will be run to the screen for debugging.
-printshellcmds: True
+printshellcmds: true
 
 # Print log files of failed jobs
-show-failed-logs: True
+show-failed-logs: true
