@@ -12,8 +12,8 @@
 
 inputs:
 - name: gisaid
-  metadata: /sample/tmp-tf-ton01/workspace/metadata_2021-02-22_10-00.tsv
-  sequences: /sample/tmp-tf-ton01/workspace/sequences_2021-02-22_08-38.fasta
+  metadata: /sample/tmp-tf-ton01/workspace/metadata_2021-03-01_09-16.tsv
+  sequences: /sample/tmp-tf-ton01/workspace/sequences_2021-03-01_09-18.fasta
 
 
 builds:
