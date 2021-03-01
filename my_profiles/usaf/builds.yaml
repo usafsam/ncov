@@ -32,6 +32,11 @@ builds:
     country: USA
     division: Ohio
 
+  # Build with all LRMC sequences
+  lrmc:
+    subsampling_scheme: usafsam-lrmc
+    geographic_scale: country
+
 
 # Define custom subsampling logic for county-level builds.
 subsampling:
@@ -88,6 +93,28 @@ subsampling:
     contextual:
       group_by: region month
       max_sequences: 500
+
+  usafsam-lrmc:
+    # Focal samples for all LRMC samples
+    lrmc:
+      group_by: originating_lab
+      seq_per_group: 2000
+      query: --query '(originating_lab == "Landstuhl Regional Medical Center")'
+
+    # Samples genetically related to the samples above
+    related:
+      group_by: region month
+      max_sequences: 500
+      query: --query '(originating_lab != "Landstuhl Regional Medical Center")'
+      priorities:
+        type: proximity
+        focus: lrmc
+
+    # Fill out the rest of the globe
+    contextual:
+      group_by: region month
+      max_sequences: 500
+
 
 # Here, you can specify what type of auspice_config you want to use
 # and what description you want. These will apply to all the above builds.
