@@ -49,8 +49,8 @@ subsampling:
       # This can be easier to read than the corresponding filter by exclusion.
       # exclude: "--exclude-where 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=U.S. Air Force School of Aerospace Medicine'"
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
-        Medicine","Public Health, United States Air Force School of Aerospace Medicine","U.S.
-        Air Force School of Aerospace Medicine"])'
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine", "U.S.
+        Air Force School of Aerospace Medicine", "US Air Force School of Aerospace Medicine"])'
 
   # Samples that are genetically related to the focal samples
     related:
