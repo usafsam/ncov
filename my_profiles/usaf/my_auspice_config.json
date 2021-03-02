@@ -112,6 +112,7 @@
     "region",
     "host",
     "author",
+    "originating_lab",
     "submitting_lab",
     "pangolin_lineage"
   ],
