@@ -77,3 +77,6 @@ scripts/curate_metadata/config_curate_metadata/manualAnnotationRules.txt
 
 # SLURM log files
 slurm-*.out
+
+# Files related to non-public health data
+**/*epicc*

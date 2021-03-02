@@ -14,6 +14,9 @@ inputs:
 - name: gisaid
   metadata: /sample/tmp-tf-ton01/workspace/metadata_2021-03-01_09-16.tsv
   sequences: /sample/tmp-tf-ton01/workspace/sequences_2021-03-01_09-18.fasta
+- name: epicc
+  metadata: /sample/tmp-tf-ton01/workspace/Epicc_all_through_210222_noS.tsv
+  sequences: /sample/tmp-tf-ton01/workspace/Epicc_all_through_210222_noS.fas
 
 
 builds:
@@ -37,6 +40,17 @@ builds:
     subsampling_scheme: usafsam-lrmc
     geographic_scale: country
 
+  # Build with all EPICC sequences
+  epicc:
+    subsampling_scheme: epicc
+    region: North America
+    country: USA
+
+# Ensure inclusion of all the EPICC samples
+filter:
+  epicc:
+    min_length: 5000 # Allow shorter (partial) genomes
+    skip_diagnostics: true # skip diagnostics (which can remove genomes) for this input
 
 # Define custom subsampling logic for county-level builds.
 subsampling:
@@ -115,6 +129,26 @@ subsampling:
 
     # Fill out the rest of the globe
     contextual:
+      group_by: region month
+      max_sequences: 500
+      query: --query '(gisaid == "yes")'
+
+  epicc:
+    # Focal samples for all EPICC samples
+    epicc-only:
+      query: --query '(epicc == "yes")'
+
+    # Samples genetically related to the samples above
+    epicc-related:
+      group_by: region month
+      max_sequences: 500
+      query: --query '(gisaid == "yes")'
+      priorities:
+        type: proximity
+        focus: epicc-only
+
+    # Fill out the rest of the globe
+    epicc-contextual:
       group_by: region month
       max_sequences: 500
       query: --query '(gisaid == "yes")'
