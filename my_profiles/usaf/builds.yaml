@@ -10,6 +10,9 @@
 
 # In this example, we use these default methods. See other templates for examples of how to customize this subsampling scheme.
 
+# Use nextalign instead of mafft
+use_nextalign: true
+
 inputs:
 - name: gisaid
   metadata: /sample/tmp-tf-ton01/workspace/metadata_2021-03-01_09-16.tsv
