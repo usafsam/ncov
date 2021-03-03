@@ -72,7 +72,7 @@ subsampling:
       # seq_per_group: 25
       max_sequences: 500
       # exclude: --exclude-where 'region!={region}'
-      query: --query '(region == {region}) & (gisaid == "yes")'
+      query: --query '(region == "{region}") & (gisaid == "yes")'
       priorities:
         type: proximity
         focus: usafsam
