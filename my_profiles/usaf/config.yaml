@@ -18,6 +18,3 @@ printshellcmds: true
 
 # Print log files of failed jobs
 show-failed-logs: true
-
-# Use nextalign instead of mafft
-use_nextalign: true
