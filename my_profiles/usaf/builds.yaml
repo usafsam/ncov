@@ -66,8 +66,9 @@ subsampling:
       # This can be easier to read than the corresponding filter by exclusion.
       # exclude: "--exclude-where 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=U.S. Air Force School of Aerospace Medicine'"
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
-        Medicine", "Public Health, United States Air Force School of Aerospace Medicine", "U.S.
-        Air Force School of Aerospace Medicine", "US Air Force School of Aerospace Medicine"]) & (gisaid == "yes")'
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) & (gisaid == "yes")'
 
   # Samples that are genetically related to the focal samples
     related:
@@ -75,7 +76,10 @@ subsampling:
       # seq_per_group: 25
       max_sequences: 500
       # exclude: --exclude-where 'region!={region}'
-      query: --query '(region == "{region}") & (gisaid == "yes")'
+      query: --query '(submitting_lab != ["United States Air Force School of Aerospace
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) & (gisaid == "yes")'
       priorities:
         type: proximity
         focus: usafsam
@@ -119,13 +123,15 @@ subsampling:
     lrmc:
       group_by: originating_lab
       seq_per_group: 2000
-      query: --query '(originating_lab == "Landstuhl Regional Medical Center") & (gisaid == "yes")'
+      query: --query '(originating_lab == "Landstuhl Regional Medical Center") & (gisaid
+        == "yes")'
 
     # Samples genetically related to the samples above
     related:
       group_by: region month
       max_sequences: 500
-      query: --query '(originating_lab != "Landstuhl Regional Medical Center") & (gisaid == "yes")'
+      query: --query '(originating_lab != "Landstuhl Regional Medical Center") & (gisaid
+        == "yes")'
       priorities:
         type: proximity
         focus: lrmc
