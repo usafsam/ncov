@@ -972,10 +972,7 @@ location	Agaete
 location	Galdar
 location	Santa Maria de Guia de Gran Canaria
 location	Moya
-<<<<<<< HEAD
-=======
 location	Valleseco
->>>>>>> 0423d36251c8f684926cc2f40c689f35ba700a5e
 location	Teror
 location	Arucas
 location	Santa Brigida
@@ -1476,10 +1473,7 @@ location	Navas
 location	Navarcles
 location	Vallirana
 location	Sant Andreu de la Barca
-<<<<<<< HEAD
-=======
 location	Castelldefels
->>>>>>> 0423d36251c8f684926cc2f40c689f35ba700a5e
 location	Castellbisbal
 location	Terrassa
 location	Viladecans
@@ -1739,10 +1733,7 @@ location	Maisons Alfort
 location	Montreuil
 location	Bobigny
 location	Villeneuve-Saint-Georges
-<<<<<<< HEAD
-=======
 location	Seine-Saint-Denis
->>>>>>> 0423d36251c8f684926cc2f40c689f35ba700a5e
 location	Creteil
 location	Aulnay Sous Bois
 location	Bry sur Marne
@@ -2988,19 +2979,12 @@ location	Hannover
 
 # Baden-Wuerttemberg
 location	Weil Am Rhein
-<<<<<<< HEAD
-location	Rümmingen
-=======
->>>>>>> 0423d36251c8f684926cc2f40c689f35ba700a5e
 location	Lörrach
 location	Grenzach-Wyhlen
 location	Bad Krozingen
 location	Steinen
 location	Freiburg
-<<<<<<< HEAD
-=======
 location	Gundelfingen
->>>>>>> 0423d36251c8f684926cc2f40c689f35ba700a5e
 location	Bad Säckingen
 location	Rickenbach
 location	Buehl
@@ -3017,10 +3001,7 @@ location	Tuebingen
 location	Konstanz
 location	Sigmaringen
 location	Ulm
-<<<<<<< HEAD
-=======
 location	Rammingen
->>>>>>> 0423d36251c8f684926cc2f40c689f35ba700a5e
 
 # Hesse
 location	Wiesbaden
@@ -3130,13 +3111,9 @@ location	Palermo
 
 # Molise
 location	Isernia
-<<<<<<< HEAD
-location	Campobasso
-=======
 location	Frosolone
 location	Campobasso
 location	Colletorto
->>>>>>> 0423d36251c8f684926cc2f40c689f35ba700a5e
 
 # Campania
 location	Naples
@@ -3430,15 +3407,6 @@ location	Witkowo Drugie
 location	Ząbkowice Śląskie
 
 # Wielkopolskie
-<<<<<<< HEAD
-location	Tarnowo Podgorne
-location	Sierosław
-location	Plewiska
-location	Oborniki
-location	Lubon
-location	Czapury
-location	Poznan
-=======
 location	Nowy Tomysl
 location	Duszniki
 location	Buk
@@ -3474,7 +3442,6 @@ location	Rogozno
 location	Murowana Goslina
 location	Wysławice
 location	Jarocin
->>>>>>> 0423d36251c8f684926cc2f40c689f35ba700a5e
 location	Kalisz
 
 # Łódzkie
@@ -5298,10 +5265,6 @@ location	Saint Louis County
 location	St. Louis MO
 
 # Wisconsin
-<<<<<<< HEAD
-location	Crawford County
-=======
->>>>>>> 0423d36251c8f684926cc2f40c689f35ba700a5e
 location	Saint Croix County
 location	Polk County WI
 location	Pierce County WI
@@ -5395,11 +5358,8 @@ location	White County
 location	Perry County IL
 location	Monroe County IL
 location	Washington County IL
-<<<<<<< HEAD
-=======
 location	Wayne County IL
 location	Wabash County
->>>>>>> 0423d36251c8f684926cc2f40c689f35ba700a5e
 location	St. Clair County IL
 location	Clinton County IL
 location	Marion County IL
@@ -5413,19 +5373,6 @@ location	Montgomery County IL
 location	Macoupin County
 location	Cumberland County
 location	Clark County IL
-<<<<<<< HEAD
-location	Morgan County IL
-location	Douglas County IL
-location	Cass County IL
-location	Adams County IL
-location	Schuyler County
-location	Hancock County
-location	McDonough County
-location	Fulton County IL
-location	Peoria County
-location	Warren County IL
-location	Kankakee County
-=======
 location	Greene County IL
 location	Shelby County IL
 location	Christian County
@@ -5455,7 +5402,6 @@ location	Marshall County IL
 location	Kankakee County
 location	Putnam County IL
 location	Lasalle County
->>>>>>> 0423d36251c8f684926cc2f40c689f35ba700a5e
 location	Bureau County
 location	Will County
 location	Rock Island County
