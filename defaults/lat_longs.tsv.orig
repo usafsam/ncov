@@ -6161,9 +6161,12 @@ division	Piaui	-7.7183	-42.7289
 division	Pichincha	-0.1465	-78.4752
 division	Piedmont	45.0522	7.5154
 division	Pirot	43.1547342	22.5865039
+<<<<<<< HEAD
+=======
 division	Pitesti	44.8572343	24.8719422
 division	Piura	-5.0	-80.333333
 division	Plaine-Wilhems	-20.32250438758201	57.50491168170886
+>>>>>>> 19e457e84cb9669d2340ca2f67a2a1913c4ceb8f
 division	Planken	47.1858848	9.5452211
 division	Pleven	43.4170	24.6067
 division	Ploiesti	44.9417468	26.0236504
