@@ -162,6 +162,15 @@ subsampling:
       max_sequences: 500
       query: --query '(gisaid == "yes")'
 
+  usafsam-only:
+    # Same as the other USAFSAM build, but without any context
+    usafsam:
+      group_by: submitting_lab
+      seq_per_group: 2000
+      query: --query '(submitting_lab == ["United States Air Force School of Aerospace
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) & (gisaid == "yes")'
 
 # Here, you can specify what type of auspice_config you want to use
 # and what description you want. These will apply to all the above builds.
