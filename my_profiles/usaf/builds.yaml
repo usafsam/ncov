@@ -15,8 +15,8 @@ use_nextalign: true
 
 inputs:
 - name: gisaid
-  metadata: /sample/tmp-tf-ton01/workspace/metadata_2021-03-01_09-16.tsv
-  sequences: /sample/tmp-tf-ton01/workspace/sequences_2021-03-01_09-18.fasta
+  metadata: /sample/tmp-tf-ton01/workspace/metadata_2021-03-22_12-43.tsv
+  sequences: /sample/tmp-tf-ton01/workspace/sequences_2021-03-22_09-03.fasta
 - name: epicc
   metadata: /sample/tmp-tf-ton01/workspace/Epicc_all_through_210222_noS_noWuhan.tsv
   sequences: /sample/tmp-tf-ton01/workspace/Epicc_all_through_210303_noS.fas
