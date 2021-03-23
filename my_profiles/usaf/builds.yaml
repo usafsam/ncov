@@ -49,6 +49,10 @@ builds:
     region: North America
     country: USA
 
+  # Build with only USAFSAM sequences submitted to GISAID
+  usafsam-only:
+    subsampling_scheme: usafsam-only
+
 # Ensure inclusion of all the EPICC samples
 filter:
   epicc:
