@@ -311,6 +311,7 @@ location	Veraval
 location	Navsari
 location	Talala
 location	Mahuva
+location	Tapi
 location	Bardoli
 location	Surat
 location	Mandvi
@@ -539,34 +540,40 @@ location	Magura
 location	Jhenaidah
 
 # Dhaka
-location	Madaripur
-location	Shariatpur
+location	Farmgate
 location	Faridpur
-location	Narayanganj
+location	Tangail
+location	Manikganj
+location	Madaripur
+location	Dhamrai
+location	Savar
+location	Shariatpur
 location	Keraniganj
-location	Kodomtoly
-location	Jatrabari
-location	Azimpur
-location	Dhanmondi
-location	Panthapath
-location	Tejgaon
 location	Mohammadpur
 location	Shaymoli
+location	Mirpur
 location	Agargaon
+location	Dhanmondi
+location	Uttara
+location	Kalabagan
+location	Azimpur
+location	Panthapath
+location	Tejgaon
+location	Cantonment
 location	Banani
 location	Gulshan
-location	Cantonment
-location	Baridhara
+location	Niketan
 location	Dhaka
-location	Mirpur
 location	Nikunja
-location	Manikganj
-location	Uttara
-location	Narsingdi
-location	Dhamrai
+location	Baridhara
+location	Ashkona
 location	Gazipur
-location	Tangail
+location	Jatrabari
+location	Narayanganj
+location	Narayanganj Sadar
+location	Narsingdi
 location	Kishoreganj
+location	Kodomtoly
 
 # Rajshahi
 location	Pabna
@@ -692,6 +699,7 @@ location	Shulan
 
 # Heilongjiang
 location	Harbin
+location	Huanan City
 
 ### Vietnam
 # Red River Delta
@@ -1009,6 +1017,9 @@ location	Benguela
 location	Povo Grande
 
 ### Botswana
+# Southern District
+location	Jwaneng
+
 # Central District BW
 location	Palapye
 
@@ -1840,10 +1851,15 @@ location	Sollana
 location	Llombai
 location	Benifaio
 location	Almussafes
+location	Real de Montroy
 location	Picassent
 location	Albal
+location	Paiporta
+location	Picanya
 location	Torrent
 location	Alaquas
+location	Alaquàs
+location	Xirivella
 location	Valencia Horta
 location	Valencia ES
 location	Quart de Poblet
@@ -2185,6 +2201,9 @@ location	Mao
 # Gibraltar
 location	Gibraltar
 
+# Scotland
+location	Fraserburgh
+
 # Wales
 location	Cardiff
 
@@ -2251,6 +2270,7 @@ location	Noyal Chatillon sur Seiche
 location	Betton
 location	Vitre
 location	Fougères
+location	Saint-M'Herve
 location	Rennes
 
 # Pays de la Loire
@@ -2334,6 +2354,7 @@ location	Chambrey Les Tours
 location	Blois
 location	Dreux
 location	Cellettes
+location	Amilly
 location	Abondant
 location	Chartres
 location	Romorantin
@@ -3176,7 +3197,7 @@ location	Evere
 location	Ganshoren
 location	Jette
 location	Laken
-location	Haren
+location	Haren BE
 location	Neder-Over-Heembeek
 
 # Antwerpen
@@ -3698,34 +3719,95 @@ location	St Eustatius
 location	Middelburg NL
 
 # South Holland
+location	Den Haag
+location	Spijkenisse
 location	Delft NL
 location	Nootdorp
+location	Katwijk
+location	Valkenburg
+location	Voorschoten
 location	Rotterdam
 location	Leiden
+location	Zoetermeer
+location	Bleiswijk
+location	Hillegom
+location	Alphen Aan Den Rijn
 location	Dordrecht
 location	Gouda
 location	Molenlanden
 location	Hardinxveld Giessendam
 
 # North Holland
-location	Haarlem
-location	Beverwijk
-location	Schiphol
-location	Alkmaar
-location	Amsterdam
-location	Amsterdam West
-location	Diemen
-location	Katwoude
-location	Gooise Meren
-location	Wervershoof
-location	Naarden
+location	Hilversum
+location	Kudelstaart
+location	Uithoorn
+location	Aalsmeer
 location	Blaricum
+location	Bussum
+location	Amstelveen
+location	Naarden
+location	Huizen
+location	Amsterdam-Zuidoost
+location	Weesp
+location	Hoofddorp
+location	Schiphol
+location	Gooise Meren
+location	Duivendrecht
+location	Badhoevedorp
+location	Diemen
+location	Heemstede
+location	Amsterdam
+location	Bloemendaal
+location	Amsterdam West
+location	Halfweg
+location	Haarlem
+location	Velserbroek
+location	Broek In Waterland
+location	Zaandam
+location	Monnickendam
+location	Ijmuiden
+location	Marken
+location	Koog Aan de Zaan
+location	Assendelft
+location	Zaandijk
+location	Katwoude
+location	Beverwijk
+location	Krommenie
+location	Volendam
+location	Wormer
+location	Purmerend
+location	Uitgeest
+location	De Rijp
+location	Alkmaar
+location	Heiloo
+location	Hoorn
+location	De Goorn
+location	Blokker
+location	Zwaag
+location	Heerhugowaard
+location	Hoogkarspel
+location	Spanbroek
+location	Benningbroek
+location	Opmeer
+location	Midwoud
+location	Wervershoof
+location	Kreileroord
+location	Den Helder
 
 # Utrecht
+location	Mijdrecht
+location	Woerden
+location	Vinkeveen
+location	Abcoude
+location	Vleuten
+location	Maarssen
 location	Overvecht
 location	Utrecht
+location	Westbroek
 location	Houten
 location	Zeist
+location	Baarn
+location	Hoogland
 location	Amersfoort
 
 # North Brabant
@@ -3735,11 +3817,13 @@ location	Andel
 location	Loon op Zand
 location	Oisterwijk
 location	Bladel
+location	'S-Hertogenbosch
 location	Bergeijk
 location	Veldhoven
 location	Best
 location	Berlicum
 location	Valkenswaard
+location	Geffen
 location	Heeswijk Dinther
 location	Eindhoven
 location	Oss
@@ -3750,11 +3834,17 @@ location	Someren
 location	Milheeze
 
 # Flevoland
+location	Almere
+location	Lelystad
 location	Zeewolde
 
 # Friesland
+location	Waaksens
 location	Franeker
+location	Sneek
 location	Weststellingwerf
+location	Rottevalle
+location	Buitenpost
 
 # Limburg
 location	Vaals
@@ -3777,6 +3867,7 @@ location	Sittard-Geleen
 location	Echt-Susteren
 location	Roerdalen
 location	Maasgouw
+location	Herten
 location	Roermond
 location	Leudal
 location	Weert NL
@@ -3799,9 +3890,19 @@ location	Oldenzaal
 
 # Groningen
 location	Leek
+location	Zuidhorn
+location	Groningen
+location	Haren NL
+location	Uithuizermeeden
+location	Appingedam
+location	Wildervank
+location	Delfzijl
 
 # Drenthe
 location	Meppel
+location	Zuidwolde
+location	Bovensmilde
+location	Peize
 location	Assen
 location	Coevorden
 location	Dalen
@@ -4432,6 +4533,7 @@ location	Going
 location	Kitzbuhel-Stadt
 location	Kitzbühel
 location	Fieberbrunn
+location	Lienz
 
 # Salzburg
 location	Bad Gastein
@@ -6448,6 +6550,7 @@ location	San Pedro de la Paz
 location	Hualpen
 location	Concepcion CL
 location	Chiguayante
+location	Hualqui
 location	Cabrero
 location	Los Angeles
 
@@ -6809,20 +6912,43 @@ location	Florianopolis
 
 # Goiás
 location	Rio Verde
-location	Simao
+location	São Simão
+location	Quirinopolis
+location	Itumbiara
+location	Ouvidor
+location	Bom Jesus de Goias
+location	Catalao
+location	Davinopolis
 location	Jatai
+location	Morrinhos
 location	Aparecida de Goiania
+location	Cristalina
+location	Abadia de Goias
 location	Senador Canedo
 location	Goiania
 location	Trindade
 location	Turvania
 location	Mangueira
 location	Santa Barbara de Goias
+location	Sao Luis de Montes Belos
+location	Anapolis
+location	Damolandia
 location	Sanclerlandia
 location	Cidade Ocidental
+location	Valparaiso de Goias
+location	Montes Claros de Goias
+location	Jussara
+location	Santa Fe de Goias
 location	Jaragua
+location	Formosa
+location	Faina
 location	Ceres BR
 location	Britania
+location	Araguapaz
+location	Itapaci
+location	Iaciara
+location	Mundo Novo
+location	Monte Alegre de Goias
 
 # Tocantins
 location	Sandolandia
@@ -7004,6 +7130,7 @@ location	Peruibe
 location	Valinhos
 location	Jaguariuna
 location	Mogi-Guacu
+location	Itapevi
 location	Cotia
 location	Santana de Parnaiba
 location	Jandira
@@ -7177,6 +7304,7 @@ location	Itajuipe
 location	Itapitanga
 location	Itacare
 location	Salvador
+location	Santo Antonio de Jesus
 location	Sao Sebastiao do Passe
 location	Feira de Santana
 
@@ -7537,11 +7665,16 @@ location	Quibdo
 location	Arauca
 
 # Antioquia
+location	Argelia
+location	Amagá
+location	Retiro
 location	Sabaneta
+location	Rionegro
 location	Envigado
 location	Itagui
 location	Medellin
 location	Bello
+location	Apartado
 
 # Santander
 location	Barrancabermeja
@@ -7741,6 +7874,8 @@ location	Cirilo Guaynora
 # Guanacaste
 location	Nicoya
 location	Santa Cruz
+location	Abangares
+location	Carrillo
 location	Tilaran
 location	Bagaces
 location	Sardinal
@@ -7770,6 +7905,7 @@ location	Santiago (Alajuela)
 location	San Carlos CR
 location	San Carlos
 location	Quesada
+location	Naranjo
 location	Cutris
 location	Grecia
 location	San Roque CR
@@ -7789,6 +7925,7 @@ location	Heredia
 location	Flores
 location	San Rafael Heredia
 location	Mercedes
+location	San Isidro CR-H
 location	Barva
 location	Santa Barbara de Heredia
 location	Horquetas
@@ -7840,7 +7977,6 @@ location	Concepcion CR
 location	San Ramón District, La Unión
 location	Tres Rios CR
 location	La Union CR
-location	San Isidro CR
 location	El Tejar
 location	Occidental
 location	Cartago CR
@@ -7849,6 +7985,7 @@ location	San Rafael Cartago
 location	Llanos de Santa Lucia
 location	Orosi
 location	Oreamuno
+location	San Isidro CR-C
 location	Paraiso
 location	Carmen
 location	Jimenez
@@ -7858,10 +7995,12 @@ location	Dulce Nombre
 location	Turrialba
 
 # Limon
+location	Talamanca
+location	Limon
+location	Siquirres
+location	Guacimo
 location	Guapiles
 location	Pococi
-location	Siquirres
-location	Limon
 
 ### Mexico
 # Baja California
@@ -8542,6 +8681,7 @@ location	Winnebago County IL
 location	McHenry County
 location	Lake County IL
 location	Stephenson County
+location	Stephenson County IL
 location	Jo Daviess County
 location	Madison
 
@@ -8635,6 +8775,7 @@ location	Cobb
 location	Ross
 location	Butler County OH
 location	Williams County OH
+location	Hamilton County OH
 location	Montgomery County OH
 location	Warren County OH
 location	Greene County OH
@@ -8646,9 +8787,12 @@ location	Marion County OH
 location	Pickaway County
 location	Franklin County OH
 location	Columbus OH
+location	Delaware County OH
+location	Morrow County
 location	Hocking County
 location	Richland County OH
 location	Lorain County
+location	Medina County OH
 location	Cuyahoga County
 location	Summit County OH
 location	Trumbull County
@@ -8824,6 +8968,7 @@ location	Suffolk County
 location	Hartford County
 location	Fairfield County CT
 location	Newtown
+location	Litchfield County
 location	Trumbull
 location	Seymour
 location	Woodbridge
@@ -9244,31 +9389,32 @@ division	Gyeonggi Province
 division	Seoul
 
 ### Japan
-division	Nagasaki
-division	Fukuoka
+division	Okinawa
 division	Kyushu
-division	Hiroshima
-division	Ehime
-division	Chushikoku
+division	Nagasaki
 division	Kochi
-division	Osaka
-division	Kyoto
-division	Kansai
+division	Ehime
+division	Fukuoka
+division	Chushikoku
 division	Nara
-division	Ishikawa
-division	Chubu
+division	Hiroshima
+division	Osaka
+division	Kansai
+division	Kyoto
 division	Aichi
-division	Hokurikushinsyu
+division	Chubu
+division	Kanagawa
+division	Chiba
+division	Tokyo
+division	Japan
 division	Yamanashi
+division	Saitama
+division	Kanto
+division	Tochigi
+division	Ishikawa
+division	Hokurikushinsyu
 division	Niigata
 division	Hokuriku
-division	Kanto
-division	Kanagawa
-division	Saitama
-division	Tochigi
-division	Japan
-division	Tokyo
-division	Chiba
 division	Tohoku
 division	Hokkaido
 
@@ -9426,6 +9572,7 @@ division	Kwara State
 division	Osun State
 division	Ondo State
 division	Ekiti State
+division	Sokoto
 division	Niger State
 division	Edo
 division	Delta
@@ -9526,6 +9673,7 @@ division	Nord Kivu
 division	Goodhope
 division	Lobatse
 division	Southern East
+division	Southern District
 division	Gaborone
 division	Botswana
 division	Central District BW
@@ -9591,6 +9739,7 @@ division	Uganda
 ### Malawi
 division	Southern Region MW
 division	Central Region MW
+division	Malawi
 division	Northern Region MW
 
 ### Mozambique
@@ -10003,6 +10152,7 @@ division	Burgenland
 ### Croatia
 division	Pula
 division	Istria
+division	Primorje-Gorski Kotar County
 division	Croatia
 division	Lika-Senj County
 division	Karlovac County
@@ -10217,6 +10367,7 @@ division	Attica
 division	Western Greece
 division	Central Greece
 division	Greece
+division	Epirus
 division	Evros
 division	Thessaloniki
 division	Central Macedonia
@@ -10660,6 +10811,7 @@ division	Trinidad and Tobago
 division	Bonaire
 
 ### Curacao
+division	Willemstad
 division	Curacao
 
 ### Aruba
@@ -11090,6 +11242,21 @@ recency	1-2 days ago
 recency	New
 
 ################
+
+
+emerging_lineage	A.23.1
+emerging_lineage	B.1.1.7
+emerging_lineage	B.1.351
+emerging_lineage	B.1.427+B.1.429
+emerging_lineage	B.1.525
+emerging_lineage	B.1.526
+emerging_lineage	B.1.617
+emerging_lineage	C.37
+emerging_lineage	P.1
+emerging_lineage	P.3
+
+################
+
 
 pango_lineage	A
 pango_lineage	A.1
@@ -12601,19 +12768,6 @@ pango_lineage	W.3
 pango_lineage	W.4
 pango_lineage	Y.1
 pango_lineage	Z.1
-
-################
-
-emerging_lineage	A.23.1
-emerging_lineage	B.1.1.7
-emerging_lineage	B.1.351
-emerging_lineage	B.1.427+B.1.429
-emerging_lineage	B.1.525
-emerging_lineage	B.1.526
-emerging_lineage	B.1.617
-emerging_lineage	C.37
-emerging_lineage	P.1
-emerging_lineage	P.3
 
 ################
 
