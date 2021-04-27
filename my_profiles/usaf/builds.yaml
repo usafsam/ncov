@@ -15,8 +15,8 @@ use_nextalign: true
 
 inputs:
 - name: gisaid
-  metadata: data/metadata_2021-04-15_13-34.tsv
-  sequences: data/sequences_2021-04-15_11-06.fasta
+  metadata: data/metadata_2021-04-26_11-04.tsv
+  sequences: data/sequences_2021-04-26_11-08.fasta
 - name: epicc
   metadata: data/Epicc_all_through_210303_noS_noWuhan.tsv
   sequences: data/Epicc_all_through_210303_noS.fas
