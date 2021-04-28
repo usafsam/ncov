@@ -18,8 +18,8 @@ inputs:
   metadata: data/metadata_2021-04-26_11-04.tsv
   sequences: data/sequences_2021-04-26_11-08.fasta
 - name: epicc
-  metadata: data/Epicc_all_through_210303_noS_noWuhan.tsv
-  sequences: data/Epicc_all_through_210303_noS.fas
+  metadata: data/Epicc_all_through_210407_noS_noWuhan.tsv
+  sequences: data/Epicc_all_through_210407_noS.fas
 
 
 builds:
