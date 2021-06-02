@@ -2,7 +2,7 @@ rule sanitize_metadata:
     input:
         metadata=lambda wildcards: _get_path_for_input("metadata", wildcards.origin)
     output:
-        metadata="results/sanitized_metadata_{origin}.tsv"
+        metadata="results/sanitized_metadata_{origin}.tsv.xz"
     benchmark:
         "benchmarks/sanitize_metadata_{origin}.txt"
     conda:
@@ -10,13 +10,17 @@ rule sanitize_metadata:
     log:
         "logs/sanitize_metadata_{origin}.txt"
     params:
+        parse_location_field=f"--parse-location-field {config['sanitize_metadata']['parse_location_field']}" if config["sanitize_metadata"].get("parse_location_field") else "",
+        rename_fields=config["sanitize_metadata"]["rename_fields"],
         strain_prefixes=config["strip_strain_prefixes"],
     shell:
         """
         python3 scripts/sanitize_metadata.py \
             --metadata {input.metadata} \
+            {params.parse_location_field} \
+            --rename-fields {params.rename_fields:q} \
             --strip-prefixes {params.strain_prefixes:q} \
-            --output {output.metadata}
+            --output {output.metadata} 2>&1 | tee {log}
         """
 
 
@@ -27,9 +31,9 @@ rule combine_input_metadata:
         Combining metadata files {input.metadata} -> {output.metadata} and adding columns to represent origin
         """
     input:
-        metadata=expand("results/sanitized_metadata_{origin}.tsv", origin=config.get("inputs")),
+        metadata=expand("results/sanitized_metadata_{origin}.tsv.xz", origin=config.get("inputs")),
     output:
-        metadata = "results/combined_metadata.tsv"
+        metadata = "results/combined_metadata.tsv.xz"
     params:
         origins = lambda wildcards: list(config["inputs"].keys())
     log:
@@ -53,14 +57,17 @@ rule align:
         genemap = config["files"]["annotation"],
         reference = config["files"]["alignment_reference"]
     output:
-        alignment = "results/aligned_{origin}.fasta",
+        alignment = "results/aligned_{origin}.fasta.xz",
         insertions = "results/insertions_{origin}.tsv",
-        translations = expand("results/translations/seqs_{{origin}}.gene.{gene}.fasta", gene=config.get('genes', ['S']))
+        translations = expand("results/translations/seqs_{{origin}}.gene.{gene}.fasta.xz", gene=config.get('genes', ['S']))
     params:
         outdir = "results/translations",
         genes = ','.join(config.get('genes', ['S'])),
         basename = "seqs_{origin}",
         strain_prefixes=config["strip_strain_prefixes"],
+        # Strip the compression suffix for the intermediate output from the aligner.
+        uncompressed_alignment=lambda wildcards, output: Path(output.alignment).with_suffix(""),
+        sanitize_log="logs/sanitize_sequences_{origin}.txt"
     log:
         "logs/align_{origin}.txt"
     benchmark:
@@ -74,7 +81,7 @@ rule align:
         python3 scripts/sanitize_sequences.py \
             --sequences {input.sequences} \
             --strip-prefixes {params.strain_prefixes:q} \
-            --output /dev/stdout \
+            --output /dev/stdout 2> {params.sanitize_log} \
             | nextalign \
             --jobs={threads} \
             --reference {input.reference} \
@@ -83,19 +90,21 @@ rule align:
             --sequences /dev/stdin \
             --output-dir {params.outdir} \
             --output-basename {params.basename} \
-            --output-fasta {output.alignment} \
-            --output-insertions {output.insertions} > {log} 2>&1
+            --output-fasta {params.uncompressed_alignment} \
+            --output-insertions {output.insertions} > {log} 2>&1;
+        xz -2 {params.uncompressed_alignment};
+        xz -2 {params.outdir}/{params.basename}*.fasta
         """
 
 rule diagnostic:
     message: "Scanning aligned sequences {input.alignment} for problematic sequences"
     input:
         alignment = lambda wildcards: _get_path_for_input("aligned", wildcards.origin),
-        metadata = "results/sanitized_metadata_{origin}.tsv",
+        metadata = "results/sanitized_metadata_{origin}.tsv.xz",
         reference = config["files"]["reference"]
     output:
-        diagnostics = "results/sequence-diagnostics_{origin}.tsv",
-        flagged = "results/flagged-sequences_{origin}.tsv",
+        diagnostics = "results/sequence-diagnostics_{origin}.tsv.xz",
+        flagged = "results/flagged-sequences_{origin}.tsv.xz",
         to_exclude = "results/to-exclude_{origin}.txt"
     log:
         "logs/diagnostics_{origin}.txt"
@@ -106,7 +115,7 @@ rule diagnostic:
         "benchmarks/diagnostics_{origin}.txt"
     resources:
         # Memory use scales primarily with the size of the metadata file.
-        mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
+        mem_mb=12000
     conda: config["conda_environment"]
     shell:
         """
@@ -119,6 +128,22 @@ rule diagnostic:
             --output-flagged {output.flagged} \
             --output-diagnostics {output.diagnostics} \
             --output-exclusion-list {output.to_exclude} 2>&1 | tee {log}
+        """
+
+rule compress_exclusion_file:
+    input:
+        to_exclude="results/to-exclude_{origin}.txt"
+    output:
+        to_exclude="results/to-exclude_{origin}.txt.xz"
+    benchmark:
+        "benchmarks/compress_exclusion_file_{origin}.txt"
+    conda:
+        config["conda_environment"]
+    log:
+        "logs/compress_exclusion_file_{origin}.txt"
+    shell:
+        """
+        xz -c {input} > {output} 2> {log}
         """
 
 def _collect_exclusion_files(wildcards):
@@ -141,7 +166,7 @@ rule mask:
     input:
         alignment = lambda w: _get_path_for_input("aligned", w.origin)
     output:
-        alignment = "results/masked_{origin}.fasta"
+        alignment = "results/masked_{origin}.fasta.xz"
     log:
         "logs/mask_{origin}.txt"
     benchmark:
@@ -159,7 +184,7 @@ rule mask:
             --mask-from-end {params.mask_from_end} \
             --mask-sites {params.mask_sites} \
             --mask-terminal-gaps \
-            --output {output.alignment} 2>&1 | tee {log}
+            --output /dev/stdout | xz -c -2 > {output.alignment} 2> {log}
         """
 
 rule filter:
@@ -172,12 +197,12 @@ rule filter:
         """
     input:
         sequences = lambda wildcards: _get_path_for_input("masked", wildcards.origin),
-        metadata = "results/sanitized_metadata_{origin}.tsv",
+        metadata = "results/sanitized_metadata_{origin}.tsv.xz",
         # TODO - currently the include / exclude files are not input (origin) specific, but this is possible if we want
         include = config["files"]["include"],
         exclude = _collect_exclusion_files,
     output:
-        sequences = "results/filtered_{origin}.fasta"
+        sequences = "results/filtered_{origin}.fasta.xz"
     log:
         "logs/filtered_{origin}.txt"
     benchmark:
@@ -187,10 +212,11 @@ rule filter:
         exclude_where = lambda wildcards: _get_filter_value(wildcards, "exclude_where"),
         min_date = lambda wildcards: _get_filter_value(wildcards, "min_date"),
         ambiguous = lambda wildcards: f"--exclude-ambiguous-dates-by {_get_filter_value(wildcards, 'exclude_ambiguous_dates_by')}" if _get_filter_value(wildcards, "exclude_ambiguous_dates_by") else "",
-        date = (date.today() + datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+        date = (date.today() + datetime.timedelta(days=1)).strftime("%Y-%m-%d"),
+        intermediate_output=lambda wildcards, output: Path(output.sequences).with_suffix("")
     resources:
         # Memory use scales primarily with the size of the metadata file.
-        mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
+        mem_mb=12000
     conda: config["conda_environment"]
     shell:
         """
@@ -204,7 +230,8 @@ rule filter:
             --exclude {input.exclude} \
             --exclude-where {params.exclude_where}\
             --min-length {params.min_length} \
-            --output {output.sequences} 2>&1 | tee {log}
+            --output {params.intermediate_output} 2>&1 | tee {log};
+        xz -2 {params.intermediate_output}
         """
 
 def _get_subsampling_settings(wildcards):
@@ -317,23 +344,21 @@ rule combine_sequences_for_subsampling:
     input:
         lambda w: [_get_path_for_input("filtered", origin) for origin in config.get("inputs", {})]
     output:
-        "results/combined_sequences_for_subsampling.fasta"
+        "results/combined_sequences_for_subsampling.fasta.xz"
     benchmark:
         "benchmarks/combine_sequences_for_subsampling.txt"
     conda: config["conda_environment"]
     params:
-        warn_about_duplicates="--warn-about-duplicates" if config.get("combine_sequences_for_subsampling", {}).get("warn_about_duplicates") else "",
+        error_on_duplicate_strains="--error-on-duplicate-strains" if not config.get("combine_sequences_for_subsampling", {}).get("warn_about_duplicates") else "",
         strain_prefixes=config["strip_strain_prefixes"],
     shell:
         """
         python3 scripts/sanitize_sequences.py \
                 --sequences {input} \
                 --strip-prefixes {params.strain_prefixes:q} \
+                {params.error_on_duplicate_strains} \
                 --output /dev/stdout \
-                | python3 scripts/combine-and-dedup-fastas.py \
-            --input /dev/stdin \
-            {params.warn_about_duplicates} \
-            --output {output}
+                | xz -c -2 > {output}
         """
 
 rule index_sequences:
@@ -344,7 +369,7 @@ rule index_sequences:
     input:
         sequences = _get_unified_alignment
     output:
-        sequence_index = "results/combined_sequence_index.tsv"
+        sequence_index = "results/combined_sequence_index.tsv.xz"
     log:
         "logs/index_sequences.txt"
     benchmark:
@@ -401,7 +426,7 @@ rule subsample:
         priority_argument = get_priority_argument
     resources:
         # Memory use scales primarily with the size of the metadata file.
-        mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
+        mem_mb=12000
     conda: config["conda_environment"]
     shell:
         """
@@ -497,8 +522,8 @@ rule combine_samples:
         metadata=_get_unified_metadata,
         include=_get_subsampled_files,
     output:
-        sequences = "results/{build_name}/{build_name}_subsampled_sequences.fasta",
-        metadata = "results/{build_name}/{build_name}_subsampled_metadata.tsv"
+        sequences = "results/{build_name}/{build_name}_subsampled_sequences.fasta.xz",
+        metadata = "results/{build_name}/{build_name}_subsampled_metadata.tsv.xz"
     log:
         "logs/subsample_regions_{build_name}.txt"
     benchmark:
@@ -544,12 +569,12 @@ rule build_align:
         mem_mb=3000
     shell:
         """
-        nextalign \
+        xz -c -d {input.sequences} | nextalign \
             --jobs={threads} \
             --reference {input.reference} \
             --genemap {input.genemap} \
             --genes {params.genes} \
-            --sequences {input.sequences} \
+            --sequences /dev/stdin \
             --output-dir {params.outdir} \
             --output-basename {params.basename} \
             --output-fasta {output.alignment} \
@@ -614,7 +639,7 @@ rule adjust_metadata_regions:
     input:
         metadata = _get_unified_metadata
     output:
-        metadata = "results/{build_name}/metadata_adjusted.tsv"
+        metadata = "results/{build_name}/metadata_adjusted.tsv.xz"
     params:
         region = lambda wildcards: config["builds"][wildcards.build_name]["region"]
     log:
@@ -875,7 +900,7 @@ rule traits:
         sampling_bias_correction = _get_sampling_bias_correction_for_wildcards
     resources:
         # Memory use scales primarily with the size of the metadata file.
-        mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
+        mem_mb=12000
     conda: config["conda_environment"]
     shell:
         """
@@ -1015,7 +1040,7 @@ rule recency:
         "benchmarks/recency_{build_name}.txt"
     resources:
         # Memory use scales primarily with the size of the metadata file.
-        mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
+        mem_mb=12000
     conda: config["conda_environment"]
     shell:
         """
@@ -1044,7 +1069,7 @@ rule tip_frequencies:
         proportion_wide = config["frequencies"]["proportion_wide"]
     resources:
         # Memory use scales primarily with the size of the metadata file.
-        mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
+        mem_mb=12000
     conda: config["conda_environment"]
     shell:
         """
@@ -1162,7 +1187,7 @@ rule export:
         title = export_title
     resources:
         # Memory use scales primarily with the size of the metadata file.
-        mem_mb=lambda wildcards, input: 15 * int(input.metadata.size / 1024 / 1024)
+        mem_mb=12000
     conda: config["conda_environment"]
     shell:
         """
@@ -1231,9 +1256,9 @@ rule finalize:
         frequencies = rules.tip_frequencies.output.tip_frequencies_json,
         root_sequence_json = rules.export.output.root_sequence_json
     output:
-        auspice_json = "auspice/ncov_{build_name}.json",
-        tip_frequency_json = "auspice/ncov_{build_name}_tip-frequencies.json",
-        root_sequence_json = "auspice/ncov_{build_name}_root-sequence.json"
+        auspice_json = f"auspice/{config['auspice_json_prefix']}_{{build_name}}.json",
+        tip_frequency_json = f"auspice/{config['auspice_json_prefix']}_{{build_name}}_tip-frequencies.json",
+        root_sequence_json = f"auspice/{config['auspice_json_prefix']}_{{build_name}}_root-sequence.json"
     log:
         "logs/fix_colorings_{build_name}.txt"
     benchmark:

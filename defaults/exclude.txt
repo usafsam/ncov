@@ -2083,3 +2083,151 @@ USA/TX-HMH-1344/2020
 USA/TN-UT2050/2020
 USA/TN-UT2063/2020
 Japan/Donner380/2020
+
+# The following additional info was interpreted to mean that each of these sequences was a duplicate (second sample):
+# Brazil/GO-HLAGYN-1354344_R2/2021 EPI_ISL_2017447 additional_host_info: infection case second episode / first sample (P. 1169409) - exclude "second sample" (same date)
+Brazil/GO-HLAGYN-1354344_R2/2021
+# Brazil/GO-HLAGYN-1520715_R2/2021 EPI_ISL_2017324 additional_host_info: infection case second episode / first sample (P.1088252) - exclude "second sample" (same date)
+Brazil/GO-HLAGYN-1520715_R2/2021
+# Brazil/GO-HLAGYN-1586463_R2/2021 EPI_ISL_2017282 additional_host_info: infection case second episode / first sample (1031607) - exclude 1586463 due to later date
+Brazil/GO-HLAGYN-1586463_R2/2021
+# Brazil/GO-HLAGYN-1623988_R2/2021	EPI_ISL_2187985	additional_host_info: Post-vaccination reinfection, infection case seconde episode / first sample (855822) - exclude 855822 due to later date
+Brazil/GO-HLAGYN-855822/2021
+
+# Sample date before clade
+Spain/VC-IBV-99028301/2020
+Spain/VC-IBV-99028305/2020
+USA/TX-CDC-4061563-001/2020
+
+# Divergence; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1620967910048000
+Japan/Donner381/2020
+Australia/SA0633/2020
+Panama/GMI-PACH6448/2020
+Brazil/SP-2388/2020
+Brazil/SP-2389/2020
+
+# Divergence
+USA/WA-UW-488/2020
+Germany/SL-SU-10427535/2020
+
+# S1 mutations; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1621370263017600
+USA/TX-HMH-MCoV-25244/2021
+
+# Divergence; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1621459450055600
+Ecuador/USFQ-1325/2021
+India/GJ-ICMR-NIV-INSACOG-GSEQ-92/2021
+Indonesia/JK-NIHRD-MI2104087/2021
+Gambia/19140/2021
+India/GJ-GBRC522b/2020
+Latvia/445/2021
+Japan/Donner379/2020
+Japan/Donner382/2020
+
+# wrong date probably; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1621533304060300
+Poland/NIPH-NIH_ECDC-4488/2021
+
+# duplicates; see additional info below.
+# Japan/TY10-395-P1/2021 EPI_ISL_2158612 additional_host_info: Accession ID of original sequence is EPI_ISL_1927433.$
+Japan/TY10-395-P1/2021
+# Japan/TY11-330-P1/2021 EPI_ISL_2158613 additional_host_info: Accession ID of original sequence is EPI_ISL_1927438.$
+Japan/TY11-330-P1/2021
+# Japan/TY11-908-P1/2021 EPI_ISL_2158614 additional_host_info: Accession ID of original sequence is EPI_ISL_1927417.$
+Japan/TY11-908-P1/2021
+# Japan/TY11-912-P1/2021 EPI_ISL_2158615 additional_host_info: Accession ID of original sequence is EPI_ISL_1927845.$
+Japan/TY11-912-P1/2021
+# Japan/TY11-917-P1/2021 EPI_ISL_2158616 additional_host_info: Accession ID of original sequence is EPI_ISL_1927423.$
+Japan/TY11-917-P1/2021
+# Japan/TY11-927-P1/2021 EPI_ISL_2158617 additional_host_info: Accession ID of original sequence is EPI_ISL_1927424.$
+Japan/TY11-927-P1/2021
+# Japan/TY8-005-P0/2021 EPI_ISL_2158606 additional_host_info: Accession ID of original sequence is EPI_ISL_1128142.$
+Japan/TY8-005-P0/2021
+# Japan/TY8-008-P0/2021 EPI_ISL_2158607 additional_host_info: Accession ID of original sequence is EPI_ISL_1128143.$
+Japan/TY8-008-P0/2021
+# Japan/TY8-187-P0/2021 EPI_ISL_2158608 additional_host_info: Accession ID of original sequence is EPI_ISL_1131135.$
+Japan/TY8-187-P0/2021
+# Japan/TY8-689-P0/2021 EPI_ISL_2158605 additional_host_info: Accession ID of original sequence is EPI_ISL_1425704.$
+Japan/TY8-689-P0/2021
+# Japan/TY8-995-P0/2021 EPI_ISL_2158609 additional_host_info: Accession ID of original sequence is EPI_ISL_1198824.$
+Japan/TY8-995-P0/2021
+# Japan/TY9-344-P0/2021 EPI_ISL_2158610 additional_host_info: Accession ID of original sequence is EPI_ISL_1425611$
+Japan/TY9-344-P0/2021
+# Japan/TY9-435-P0/2021 EPI_ISL_2158611 additional_host_info: Accession ID of original sequence is EPI_ISL_1926894.$
+Japan/TY9-435-P0/2021
+
+# divergence, odd mutations; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1621572185067000
+Togo/C5951/2021
+Togo/C6149/2021
+Australia/VIC16342/2020
+Australia/VIC7953/2020
+
+# excess S1 mutations; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1621627646088600
+SriLanka/KDU8760/2021
+
+# divergence; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1621628225089500
+Germany/BY-ChVir-1019/2020
+India/GJ-GBRC213a/2020
+India/HP-278/2020
+Indonesia/GO-NIHRD-PME20210/2020
+Indonesia/NB-NIHRD-WGS02319/2021
+Panama/GMI-PA911/2020
+Tunisia/COV1339/2020
+
+# mutations don't make sense; https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1621879481099500
+USA/TX-HMH-MCoV-40892/2020
+USA/TX-HMH-MCoV-40893/2020
+USA/TX-HMH-MCoV-40917/2020
+USA/TX-HMH-MCoV-40977/2020
+USA/TX-HMH-MCoV-41485/2020
+USA/TX-HMH-MCoV-44272/2020
+
+# divergence, see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1621927155107400 and https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1621927177108000
+USA/TX-HMH-MCoV-40956/2020
+USA/WA-UW-4130/2020
+
+# Date
+USA/IL-RIPHL_30044_G/2021
+
+# divergence; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1621963221128700
+USA/WA-UW-24920/2020
+USA/MDH-7761/2020
+Australia/VIC16738/2020
+SouthKorea/KDCA3594/2020
+
+# Sample date before clade; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1622040744137600
+NorthAmerica/USA/IL-RED-FUL-39828238/2020
+Switzerland/SO-UHB-42850063/2021
+USA/KS-KHEL-1913/2020
+
+# Suspiciously early for clade
+England/LCST-24DE3CC/2020
+
+# Sample date before clade (see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1622107826150400):
+Italy/CAM-TIGEM-IZSM-COLLI-14397/2021
+Qatar/QA.QU_18.10.B12/2020
+Qatar/QA.QU_18.10.E12/2020
+USA/UT-UPHL-2104759182/2020
+SouthAfrica/NICD-N3820/2021
+Spain/MD-HRYC-71299296/2020
+
+# https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1622214173170700
+Mongolia/3622/2020
+
+# Sample date before clade
+SouthKorea/KDCA4115/2020
+USA/LA-EVTL2775/2021
+USA/LA-EVTL2776/2021
+
+# Divergence
+Iran/T11514/2021
+USA/LA-EVTL2492/2021
+Brazil/PB-BA1200-250009713/2020
+Brazil/RJ-FIOCRUZ-2188-1P/2020
+Spain/MD-IBV-99018541/2020
+Italy/CAM-TIGEM-IZSM-COLLI-14404/2021
+Italy/CAM-TIGEM-IZSM-COLLI-14404/2021
+USA/WA-UW-2105/2020
+India/MH-ICMR-NIV-INSAGOG-GSEQ-2375/2020
+India/TG-CDFD-N5400/2020
+
+# Date
+Switzerland/VD-CHUV-GEN2474/2020
