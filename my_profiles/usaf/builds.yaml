@@ -12,7 +12,7 @@
 
 inputs:
 - name: epicc
-  metadata: data/Epicc_all_through_210407_noS_noWuhan.tsv
+  metadata: data/Epicc_all_through_210407_noS.tsv
   sequences: data/Epicc_all_through_210407_noS.fas
 - name: gisaid
   metadata: data/metadata_2021-04-26_11-04.tsv
