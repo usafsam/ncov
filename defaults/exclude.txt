@@ -2231,3 +2231,46 @@ India/TG-CDFD-N5400/2020
 
 # Date
 Switzerland/VD-CHUV-GEN2474/2020
+
+# Misdated; https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1622739851264500
+USA/MI-MDHHS-SC28884/2021
+USA/MI-MDHHS-SC28909/2021
+
+# divergence; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1622670440258000
+Colombia/COR-U24/2020
+Iran/Esf-11-169/2021
+Panama/GMI-PABT2504/2020
+Spain/AN-ISCIII-201636/2020
+USA/TX-HMH-MCoV-41494/2020
+USA/WA-UW-1972/2020
+
+# misdated; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1622745640267300
+USA/TX-HMH-MCoV-40911/2020
+USA/TX-HMH-MCoV-40926/2020
+
+# Divergence; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1622798726274300
+Belgium/MBLGc7385/2020
+
+# Divergence; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1622804065277800 and following threads
+Iran/T11877/2021
+India/UP-CCMB-CIA1758/2021
+Egypt/NRC-5918/2020
+Iran/T11529/2021
+Mongolia/3624/2020
+CzechRepublic/VIR-196/2021
+
+# s1 mutations - possible bioinformatic issue; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1622838574295600
+India/GA-NCCS-169260/2021
+India/GA-NCCS-NS2561/2021
+India/GA-NCCS-NS2566/2021
+India/MH-NCCS-2748700441970/2021
+India/MH-NCCS-2749001147276/2021
+India/MH-NCCS-2749001185481/2021
+India/MH-NCCS-AFMC-45271/2021
+
+#divergence; see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1622838574295600
+Brazil/SP-L112-CD4087/2020
+USA/TX-HMH-MCoV-41509/2020
+
+# date
+Norway/7651/2020
