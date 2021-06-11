@@ -2274,3 +2274,54 @@ USA/TX-HMH-MCoV-41509/2020
 
 # date
 Norway/7651/2020
+
+# Divergence (see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1623136183316600 and following threads)
+Paraguay/PY45/2021
+Mongolia/3001/2020
+Ireland/LH-NVRL-g20IRL08001/2020
+Latvia/229/2021
+NorthMacedonia/29934/2021
+SriLanka/CDR107/2021
+Indonesia/SS-NIHRD-WGS002222/2021
+Egypt/NRC-6781/2020
+Italy/CAM-TIGEM-IZSM-COLLI-14403/2021
+USA/CA-CSMC110/2020
+Turkey/HSGM-10611/2021
+India/UP-CCMB-CIA1728/2021
+Egypt/NRC-6781/2020
+Egypt/NRC-6792/2020
+Brazil/RS-LMM48674/2021
+
+# deletion in ORF1a
+India/MH-NCCS-2748000335553/2021
+
+# Divergence (see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1623221408342400 and following threads)
+Botswana/CV1507452/2021
+Netherlands/NB-EMC-813/2020
+Iran/Hormozgan/2021
+USA/WA-UW-12659/2020
+Panama/GMI-PA352445/2020
+USA/TX-HMH-MCoV-34797/2020
+Slovakia/UVZ_PL11_G3_8404/2021
+USA/WA-UW306/2020
+USA/WA-UW-9190/2020
+
+
+# Recombinant (see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1623222061345400)
+USA/MN-CDC-LC0060370/2021
+
+# Divergence (see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1623306212359300 and following threads)
+Mongolia/29432/2020
+Mongolia/7908/2020
+Mongolia/Imp3989/2020
+Kazakhstan/KUS-NRL-602S/2021
+India/ILSGS00941/2020
+USA/WA-UW-12935/2020
+USA/TX-HMH-MCoV-40904/2020
+Peru/LIM-INS-768/2020
+Mongolia/7908/2020
+India/MH-NIV-8404/2020
+Panama/GMI-PACNB11556/2020
+
+# Sampling date and clock deviation, see https://bedfordlab.slack.com/archives/CTZKJC7PZ/p1623307741362800
+India/MP-NCDC-2509230/2020
