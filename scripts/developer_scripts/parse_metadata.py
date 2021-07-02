@@ -618,10 +618,10 @@ def adjust_to_database(data): #TODO: temporary solution, needs reworking
                                 continue
 
                             # location given, but with wrong division - adjust to correct division
-                            #if location in location_to_arrondissement and division != location_to_arrondissement[location]:
-                                #print("Wrong division " + bold(division) + " given for location " + bold(location))
-                                #print("Suggestion: add [" + "\t".join([region, country, division, location, region, country, location_to_arrondissement[location], location]) + "] to manual_adjustments.txt")
-                                #continue
+                            if clean_string(location) in location_to_arrondissement and division != location_to_arrondissement[clean_string(location)]:
+                                print("Wrong division " + bold(division) + " given for location " + bold(location))
+                                print("Suggestion: add [" + "/".join([region, country, division, location]) + "\t" + "/".join([region, country, location_to_arrondissement[clean_string(location)], location]) + "] to manual_adjustments.txt")
+                                continue
 
                             # location given, but with wrong spelling. Division is correct - adjust to correct location
                             if location in variants and clean_string(variants[location]) in location_to_arrondissement and division == location_to_arrondissement[clean_string(variants[location])]:
@@ -630,10 +630,10 @@ def adjust_to_database(data): #TODO: temporary solution, needs reworking
                                 continue
 
                             # location given, but with wrong spelling. Division false - adjust both location and division
-                            #if location in variants and variants[location] in location_to_arrondissement and division != location_to_arrondissement[variants[location]]:
-                                #print("Location " + bold(location) + " should be adjusted to " + bold(variants[location]) + ". Wrong division " + bold(division) + " given for location " + bold(variants[location]))
-                                #print("Suggestion: add [" + "\t".join( [region, country, division, location, region, country, location_to_arrondissement[variants[location]], variants[location]]) + "] to manual_adjustments.txt")
-                                #continue
+                            if location in variants and clean_string(variants[location]) in location_to_arrondissement and division != location_to_arrondissement[clean_string(variants[location])]:
+                                print("Location " + bold(location) + " should be adjusted to " + bold(variants[location]) + ". Wrong division " + bold(division) + " given for location " + bold(variants[location]))
+                                print("Suggestion: add [" + "/".join([region, country, division, location]) + "\t" + "/".join([region, country, location_to_arrondissement[clean_string(variants[location])], variants[location]]) + "] to manual_adjustments.txt")
+                                continue
 
 
                         ### location empty
@@ -1163,12 +1163,17 @@ def ask_geocoder(full_unknown_place, geolocator):
 def find_place(geo_level, place, full_place, geolocator):
     typed_place = full_place
     redo = True
+    tries = 0
     while redo == True:
-
-        try:
-            new_place = ask_geocoder(typed_place, geolocator)
-        except:
-            continue
+        if tries < 5:
+            try:
+                new_place = ask_geocoder(typed_place, geolocator)
+            except:
+                tries += 1
+                continue
+        else:
+            new_place = None
+            tries = 0
 
         if str(new_place) == 'None':
             print("\nCurrent place for missing {}:\t".format(geo_level) + full_place)

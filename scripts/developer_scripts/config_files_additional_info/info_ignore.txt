@@ -81,3 +81,10 @@ None
 With History of Travel: YES
 Community Sample
 #VALUE!
+infection
+Traveler
+Overseas Case
+Infection
+Other: local case
+Other: local
+Other: Patient Sample
