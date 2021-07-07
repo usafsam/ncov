@@ -15,8 +15,8 @@ inputs:
   metadata: data/Epicc_all_through_210407_noS.tsv
   sequences: data/Epicc_all_through_210407_noS.fas
 - name: gisaid
-  metadata: data/metadata_2021-06-10_09-46.tsv.gz
-  sequences: data/sequences_2021-06-10_06-04.fasta.gz
+  metadata: data/metadata_tsv_2021-07-07.tar.xz
+  sequences: data/sequences_fasta_2021-07-07.tar.xz
 
 
 builds:
@@ -106,14 +106,16 @@ subsampling:
       group_by: division month
       # seq_per_group: 10
       max_sequences: 500
-      query: --query '(strain.str.contains("USAFSAM")) & (division == "{division}") & (gisaid == "yes")'
+      query: --query '(strain.str.contains("USAFSAM")) & (division == "{division}")
+        & (gisaid == "yes")'
 
     # Samples genetically related to the Focal samples
     # This rule is based on DeMorgan's laws
     related:
       group_by: region month
       max_sequences: 500
-      query: --query '((~ strain.str.contains("USAFSAM")) | (division != "{division}")) & (gisaid == "yes")'
+      query: --query '((~ strain.str.contains("USAFSAM")) | (division != "{division}"))
+        & (gisaid == "yes")'
       priorities:
         type: proximity
         focus: division
@@ -130,14 +132,16 @@ subsampling:
       group_by: country month
       # seq_per_group: 10
       max_sequences: 500
-      query: --query '(strain.str.contains("USAFSAM")) & (country == "{country}") & (gisaid == "yes")'
+      query: --query '(strain.str.contains("USAFSAM")) & (country == "{country}")
+        & (gisaid == "yes")'
 
     # Samples genetically related to the Focal samples
     # This rule is based on DeMorgan's laws
     related:
       group_by: region month
       max_sequences: 500
-      query: --query '((~ strain.str.contains("USAFSAM")) | (country != "{country}")) & (gisaid == "yes")'
+      query: --query '((~ strain.str.contains("USAFSAM")) | (country != "{country}"))
+        & (gisaid == "yes")'
       priorities:
         type: proximity
         focus: country
@@ -154,14 +158,16 @@ subsampling:
       group_by: country month
       # seq_per_group: 10
       max_sequences: 500
-      query: --query '(strain.str.contains("USAFSAM")) & (country != "{country}") & (gisaid == "yes")'
+      query: --query '(strain.str.contains("USAFSAM")) & (country != "{country}")
+        & (gisaid == "yes")'
 
     # Samples genetically related to the Focal samples
     # This rule is based on DeMorgan's laws
     related:
       group_by: region month
       max_sequences: 500
-      query: --query '((~ strain.str.contains("USAFSAM")) | (country == "{country}")) & (gisaid == "yes")'
+      query: --query '((~ strain.str.contains("USAFSAM")) | (country == "{country}"))
+        & (gisaid == "yes")'
       priorities:
         type: proximity
         focus: noncountry
@@ -209,4 +215,4 @@ files:
 
 # Avoid this exception:
 # "Where there’s SAMPLING_TRAIT we should always have EXPOSURE_TRAIT"
-skip_travel_history_adjustment: True
+skip_travel_history_adjustment: true
