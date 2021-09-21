@@ -81,6 +81,7 @@ location	Agualva	38.7712545	-9.291961378935335
 location	Aguaray	-22.2448504	-63.7353213
 location	Aguarico	-0.9846231999999999	-75.98915334608697
 location	Águas Belas	-9.1113156	-37.1225218
+location	Aguas Buenas	18.25041825	-66.13012947319635
 location	Aguas Buenas County	18.25041825	-66.13012947319635
 location	Aguas de Santa Barbara	-22.8821912	-49.2383956
 location	Aguas de Sao Pedro	-22.6000681	-47.8750887
@@ -662,6 +663,7 @@ location	Bailey County	34.0349194	-102.8149372
 location	Bailleul	50.6689214	3.3176015
 location	Bairro Azul	-8.8258862	13.22189
 location	Baixo Guandu	-19.5138322	-41.0182089
+location	Baja California (Chiapas)	16.7657698	-93.1889836
 location	Baja Verapaz	14.9139596	-90.5232808
 location	Bajc	47.9235482	18.2081404
 location	Bajina Basta	43.9714028	19.5659497
@@ -1156,6 +1158,7 @@ location	Bocaina do Sul	-27.745494	-49.942279
 location	Bochnia	49.974684249999996	20.425329198706468
 location	Bocholt	51.183426	5.558851
 location	Bochotnica	51.3397608	21.9925412
+location	Boćki	52.6512834	23.0426375
 location	Bodeli	22.2749233	73.7165607
 location	Bodensdorf	46.6860885	13.9725749
 location	Bodzanow	50.3366022	17.3839717
@@ -1293,7 +1296,6 @@ location	Bovesse	50.5143641	4.779285182968074
 location	Bowie County	33.4198886	-94.4479626
 location	Bozeman	45.6794293	-111.044047
 location	Bozen	46.4981125	11.3547801
-location	Boćki	52.6512834	23.0426375
 location	Bąkowice	50.93141	17.6995762
 location	Bra	50.3244046	5.7337839
 location	Brackenfell	-33.877398609128875	18.69249068258294
@@ -1869,6 +1871,7 @@ location	Cayastá	-30.3554502	-60.4098547
 location	Cayenne	48.4250604	-2.1951293
 location	Cayenne BRE	48.4250604	-2.1951293
 location	Cayenne GF	4.9371143	-52.3258307
+location	Cayey	18.1126889	-66.1662772
 location	Cayey County	18.1126889	-66.1662772
 location	Cayuga County	42.900990	-76.575649
 location	Cazenga	-8.82357525	13.308092850527997
@@ -2036,6 +2039,7 @@ location	Chester County PA	39.9829308	-75.7652424
 location	Chester County SC	34.6859896	-81.1545073
 location	Chesterfield County	37.3859982	-77.578509
 location	Chesterfield County SC	34.6500578	-80.1417843
+location	Chesterfield County VA	37.3859982	-77.578509
 location	Chhota Udaipur	22.3048651	74.0126114
 location	Chia	4.8704614500000005	-74.03632158198437
 location	Chicago	41.858966	-87.637242
@@ -2101,6 +2105,7 @@ location	Chrášťany	50.064666	14.929982
 location	Chris Hani	-31.5796424	28.7239077
 location	Christian County	39.5212598	-89.2829783
 location	Christian County IL	39.5212598	-89.2829783
+location	Christian County MO	36.9586087	-93.1692896
 location	Chroberz	50.422448	20.5558784
 location	Chroscice	50.783878	17.8153199
 location	Chroscina	50.6654559	17.8139394
@@ -2127,6 +2132,7 @@ location	Cibola County	34.8722771	-107.9398474
 location	Ciborz	53.256891	19.8683185
 location	Cicava	48.9237326	21.66352
 location	Cidade Ocidental	-16.1000758	-47.9445014
+location	Cidra County	18.1757164	-66.1609235
 location	Ciechanow	52.871204399999996	20.606245921754713
 location	Ciecierowka	51.171767	21.3765252
 location	Cienaga	11.006697	-74.244529
@@ -2176,6 +2182,7 @@ location	Clark County OH	39.9229676	-83.7905959
 location	Clark County WA	45.7669047	-122.4940866
 location	Clark County WI	44.7188146	-90.6214928
 location	Clarke County	31.659134	-87.8192486
+location	Clarke County AL	31.659134	-87.8192486
 location	Clarke County GA	33.9597677	-83.376398
 location	Clatsop County	45.980728	-123.6687499
 location	Clavier	50.4119432	5.3576794
@@ -2200,6 +2207,7 @@ location	Cluses	46.0603171	6.5804218
 location	Cmielow	50.8918364	21.5100875
 location	Cminsk	50.9844445	20.5405892
 location	Coahoma County	34.1931314	-90.5653906
+location	Coamo	18.0807012	-66.3565542
 location	Coamo County	18.0807012	-66.3565542
 location	Coatepeque	14.7026327	-91.8656361
 location	Cobán	15.4702001	-90.3735065
@@ -2757,6 +2765,7 @@ location	Donihue	-34.226074	-70.9648916
 location	Donostia-San Sebastian	43.304023	-1.981439
 location	Donovaly	48.8790358	19.2239467
 location	Door County	44.7615925	-87.5329747
+location	Dorado	18.4587209	-66.2677506
 location	Dorado County	18.4587209	-66.2677506
 location	Dorat	45.8921095	3.4817086
 location	Dorchester County	33.0756291	-80.3431133
@@ -3406,6 +3415,7 @@ location	Garabito	9.707248100000001	-84.6218658823131
 location	Garca	-22.2125766	-49.6547994
 location	Garches	48.8461	2.1887
 location	Garden Route	-34.05747092711639	23.37463208713873
+location	Garfield County	46.4604687	-117.5294769
 location	Garibaldi	-29.2562253	-51.5269167
 location	Garies	-30.560738100000002	17.988800095992133
 location	Gariyaband	20.42857015	82.24698984817437
@@ -3823,6 +3833,7 @@ location	Gunskirchen	48.1334587	13.9427447
 location	Guntramsdorf	48.04717635	16.32019634126145
 location	Guntur	16.2915189	80.4541588
 location	Gunzwil	47.2116702	8.1800549
+location	Gurabo	18.2555647	-65.9723799
 location	Gurabo County	18.2555647	-65.9723799
 location	Guriezo	43.33683555	-3.324953504422364
 location	Gurugram	28.4646148	77.0299194
@@ -3984,6 +3995,7 @@ location	Henry County	31.4838041	-85.2447377
 location	Henry County AL	31.4838041	-85.2447377
 location	Henry County GA	33.4519942	-84.1367771
 location	Henry County IL	41.3418549	-90.1177442
+location	Henry County KY	38.447983	-85.1191168
 location	Henrykow	50.6537021	17.0103463
 location	Hensies	50.435594	3.711566
 location	Heppen	51.108225	5.228402
@@ -4195,6 +4207,7 @@ location	Humanes	40.8280275	-3.1541095
 location	Humbeek	50.9673676	4.3794122
 location	Humboldt County	40.7450	-123.8695
 location	Humenne	48.9350033	21.9020268
+location	Humphreys County MS	33.1282074	-90.5408182
 location	Huncovce	49.12824315	20.378241965790373
 location	Huningue	47.5941514	7.5794613
 location	Hunt County	33.1161567	-96.0808922
@@ -4613,6 +4626,7 @@ location	Joinville	-26.235559	-48.950735
 location	Jona	47.2299661	8.837658
 location	Jonava	55.0737086	24.2756961
 location	Joncret	50.35278095337974	4.513072379458692
+location	Jones County MS	31.6058959	-89.1636245
 location	Jorba	41.6014534	1.547408
 location	Jordán	0.2357332863593663	-78.2617092391726
 location	Jordania	-15.899444	-40.178889
@@ -4823,6 +4837,7 @@ location	Kennebec County	44.4184616	-69.8250659
 location	Kenosha County	42.5729233	-88.0679837
 location	Kent County	39.1156908	-75.4841394
 location	Kent County DE	39.1156594	-75.484116
+location	Kent County RI	41.6722912	-71.602762
 location	Kepanow	49.8329152	20.2611704
 location	Kepno	51.2790265	17.9866632
 location	Keqiao	30.0819	120.4951
@@ -5358,6 +5373,7 @@ location	Lapachito	-27.1593809	-59.3854377
 location	Lapalisse	46.2488636	3.6324006
 location	Lapanow	49.8648601	20.2913672
 location	Lapino	55.2055779	36.2763394
+location	Laporte County	41.5718945	-86.7490124
 location	Laqueuille	45.6507627	2.7320917
 location	Lar do Patriota	-8.9519898	13.197779960108381
 location	Laranjal do Jari	-0.8419994	-52.516
@@ -6189,6 +6205,7 @@ location	Mateiros	-10.5462254	-46.417423
 location	Mateo Iturralde	9.032976446684449	-79.49611275876926
 location	Matera	40.447641899999994	16.47357384028852
 location	Mateur	37.0385985	9.6676974
+location	Matina	10.009750749999998	-83.33949719306517
 location	Matki	53.8350372	20.3450702
 location	Matoury	4.8496712	-52.3268695
 location	Matrei am Brenner	47.128405	11.452845
@@ -6226,6 +6243,7 @@ location	Mccracken County	37.0335839	-88.7107201
 location	McCulloch County	31.1699604	-99.3885277
 location	McDonough County	40.4376858	-90.6780272
 location	McHenry County	42.3294391	-88.4605713
+location	Mckinley County	35.6438394	-108.1515609
 location	McLean County IL	40.4631789	-88.8196613
 location	Mclennan County	31.5487691	-97.2189254
 location	McMinn County	35.444223	-84.624875
@@ -8883,6 +8901,7 @@ location	San Francisco de Dos Rios	9.9084178	-84.0594842
 location	San Francisco de Mostazal	-33.9799035	-70.7121737
 location	San Francisco El Alto	14.945113	-91.443109
 location	San Francisco PA	8.990150	-79.506474
+location	San German	18.0808972	-67.0408635
 location	San Germán County	18.0808972	-67.0408635
 location	San Guillermo	-33.350998	-61.4428099
 location	San Ignacio	-36.437888	-71.9154445
@@ -8929,6 +8948,7 @@ location	San Lorenzo	-32.7434258	-60.7496742
 location	San Lorenzo AR	-32.74528101079663	-60.742480547054136
 location	San Lorenzo County	18.1524948	-65.97563436136883
 location	San Lorenzo GT	15.01794045	-91.74565153007444
+location	San Lorenzo PR	18.1841319	-65.9682865
 location	San Lorenzo PY	-25.35467544347727	-57.5093107016072
 location	San Lucas	14.606752357258324	-90.65983698158207
 location	San Luis Obispo County	35.3102	-120.4358
@@ -8967,6 +8987,7 @@ location	San Pedro de la Paz	-36.8414183	-73.1039909
 location	San Pedro de Pegas	42.4507713	-5.8742039
 location	San Pedro Pinula	14.6629921	-89.8476479
 location	San Pedro Sacatepequez	14.69497515	-90.64233914093663
+location	San Pedro Town	17.90265725	-87.98179870404411
 location	San Pol de Mar	41.6030132	2.6238092
 location	San Rafael	-34.6126025	-68.330514
 location	San Rafael AR	-34.6126025	-68.330514
@@ -9453,6 +9474,7 @@ location	Selfkant	51.020689950000005	5.9217594796191495
 location	Seltisberg	47.4598282	7.7153815
 location	Selviria	-20.3638312	-51.4183823
 location	Semerovo	48.0083903	18.3448459
+location	Seminole County	28.7225829	-81.2353683
 location	Sena Madureira	-9.0659556	-68.6571058
 location	Senador Canedo	-16.7013233	-49.0914921
 location	Sene	47.6199584	-2.7373441
@@ -9737,6 +9759,7 @@ location	Sombrio	-29.107985	-49.632776
 location	Someren	51.38632235	5.688884477579495
 location	Somerset County	40.5675084	-74.6189556
 location	Somerset County MD	38.0630795	-75.8745873
+location	Somerset County NJ	40.5675084	-74.6189556
 location	Somervell County	32.2275813	-97.7724138
 location	Somiedo	43.102801150000005	-6.251455743067364
 location	Somo	43.2964299	-3.6030979
@@ -10756,6 +10779,7 @@ location	Valparaiso de Goias	-16.0686394	-47.9764907
 location	Vals	46.6166848	9.1804954
 location	Valthermond	52.8870134	6.9751387
 location	Valuyki	50.19417240489066	38.11999415685251
+location	Van Buren County	42.2710763	-86.013973
 location	Van Zandt County	32.5375642	-95.8292165
 location	Vanasthalipuram	17.3303179	78.568278
 location	Vancouver	45.6306954	-122.6744557
@@ -11468,6 +11492,7 @@ location	Yanino-1	59.947418	30.561453
 location	Yantzaza	-3.7146811499999997	-78.73763444639725
 location	Yaroslavl	57.6263877	39.8933705
 location	Yates County	42.6444444	-77.112177
+location	Yauco	18.0352547	-66.8487055
 location	Yavapai County	34.5668857	-112.5515965
 location	Yavatmal	20.15	78.35
 location	Yaviza	8.1762134	-77.709096
@@ -11748,9 +11773,11 @@ division	Algiers	36.70649229138003	3.0544471144244483
 division	Alif Alif Atoll	4.0518934	72.7276959
 division	Alifu Dhaalu Atoll	3.5993756505411025	72.82595552226857
 division	Almaty	43.2363924	76.9457275
+division	Aloatra-Mangoro	-17.93579010617825	48.30432131939425
 division	Alta Verapaz	15.5	-90.333333
 division	Altai Krai	52.6932243	82.6931424
 division	Alto Paraguay	-20.5	-59.166667
+division	Alto Paraná	-25.5	-54.833333
 division	Alytaus Apskritis	54.22953895	24.07911990913408
 division	Alytus	54.3961344	24.0459268
 division	Amapa	1.582936	-51.809488
@@ -11778,6 +11805,7 @@ division	Antigua	17.086	-61.78629453333333
 division	Antigua and Barbuda	17.2234721	-61.9554608
 division	Antioquia	6.709191	-75.484721
 division	Antofagasta	-23.6509	-70.3975
+division	Antsiranana	-12.2779134	49.2913394
 division	Antwerpen	51.225698	4.420885
 division	Aomori	40.886943	140.590121
 division	Appenzell Ausserrhoden	47.3960076	9.3705839
@@ -11822,6 +11850,7 @@ division	Athens	37.987832	23.726319
 division	Atlantico	10.681025	-74.955752
 division	Atlántida	15.8172492	-87.11469350954292
 division	Atsimo-Andrefana	-23.0907053	44.40133257710572
+division	Atsinanana	-18.87255782473823	48.9338102093968
 division	Attica	37.9946543	23.79940251269328
 division	Attock	33.7695323	72.3610911
 division	Atyrau Region	47.6605827	50.806203
@@ -11958,6 +11987,8 @@ division	Bolivar VE	8.1080955	-63.551078
 division	Bolivia	-17.0568696	-64.9912286
 division	Bomet	-0.7196054000000001	35.23963801252495
 division	Bonaire	12.1558998	-68.242427
+division	Bong	6.927103677721825	-9.631899105957558
+division	Bongolava	-18.567679963367897	46.229277259149626
 division	Bono East Region	7.8035236	-1.0876492
 division	Bono Region	7.6761791	-2.4735401
 division	Bonthe	7.5292766	-12.5131866
@@ -12018,8 +12049,10 @@ division	Busia	0.3712048	34.26479520608315
 division	Buskerud	59.5435778	11.4230694
 division	Buzau	45.143297	26.816251
 division	Caaguazu	-25.4661756	-56.0181685
+division	Caazapá	-26.166667	-56.0
 division	Cabinda	-5.056395	12.3211749
 division	Cabo Delgado	-12.4254942	39.4168743
+division	Cabo Verde	16.0000552	-24.0083947
 division	Cacak	43.891816	20.362815
 division	Cagayan Valley	17.677229	121.88902982109876
 division	Cahul	45.9044087	28.1946583
@@ -12069,6 +12102,7 @@ division	Cauca	2.473774	-76.864221
 division	Causeni	46.6395913	29.4056631
 division	Cavan	54.03497495	-7.2937022825583675
 division	Cayman Islands	19.703182249999998	-79.9174627243246
+division	Cayo	16.94779405	-88.89088792620106
 division	Cazin	44.9690	15.9432
 division	Ceará	-5.4984	-39.3206
 division	Čelinac	44.724001	17.324755
@@ -12083,6 +12117,7 @@ division	Central Greece	38.58000405	23.151988380646536
 division	Central Hungary	47.360008	19.252798
 division	Central Jakarta	-6.18233995	106.84287153600738
 division	Central Java	-5.6259648	110.37164897312938
+division	Central Kenya	-0.5843453000000001	36.969678675807025
 division	Central Luzon	15.390911849999998	120.68569951248944
 division	Central Macedonia	40.63697225	22.87548941816365
 division	Central Nepal	27.677801648807623	85.44039791982269
@@ -12096,6 +12131,7 @@ division	Central Uganda	0.32690195	32.58405552994708
 division	Central Visayas	10.264054	123.86939597334481
 division	Central Zambia	-14.183507	29.0375543
 division	Centrale Region TG	8.607113	1.0458553669392443
+division	Centre	12.36732	-1.5430869129979032
 division	Centre-Val de Loire	47.481221	1.698793
 division	Cerro Largo	-32.333333	-54.333333
 division	Cesar	9.654915	-73.528255
@@ -12175,6 +12211,7 @@ division	Cordillera Administrative Region	17.35971005	121.07525291788875
 division	Cordoba AR	-31.402893	-64.191608
 division	Cordoba CO	8.342953	-75.757692
 division	Cork	51.895349	-8.474381
+division	Corozal	18.2242711	-88.29194387759722
 division	Corrientes	-28.5912315	-57.9394658
 division	Corse	42.188089649999995	9.068413771427695
 division	Cortés	15.477399850000001	-88.03421491859675
@@ -12283,11 +12320,13 @@ division	East Azerbaijan Province	37.9211202	46.6821517
 division	East Java	-7.6977397	112.4914199
 division	East Kalimantan	0.241323	116.558975
 division	East-Kazakhstan Region	48.6130209	81.7489928
+division	East Kenya	0.6929497	38.494159425156525
 division	East New Britain	-5.1386278	151.9020187
 division	East Nusa Tenggara	-8.5656787	120.6978581
 division	Eastern Bohemia	50.09432848142632	16.008774307550546
 division	Eastern Cape	-32.344458	26.497832
 division	Eastern Macedonia and Thrace	41.1271333	25.09323306309048
+division	Eastern Paraguay	-24.515009819513484	-56.26350946272442
 division	Eastern Province	23.3036077	50.1258804
 division	Eastern Province LK	7.64857989585601	81.52923095002983
 division	Eastern Province SA	23.3036077	50.1258804
@@ -12340,6 +12379,7 @@ division	Fejer	47.0939434	18.6088562
 division	Fergana Region	40.5	71.25
 division	Ferizaj	42.3682168	21.1532848
 division	Ferkessedougou	9.5939778	-5.1975952
+division	Fianarantsoa	-21.456444	47.085149
 division	Fiji	-18.1239696	179.0122737
 division	Finland	61.751734	26.186437
 division	Flacq	-20.221731249999998	57.72234951618523
@@ -12423,6 +12463,7 @@ division	Gostivar	41.7920222	20.9081703
 division	Gotland	57.4174802	18.536957927499856
 division	Goumenissa	40.9466441	22.4519413
 division	Grand Canary Islands	27.9202	-15.5474
+division	Grand Cape Mount	7.0496206	-11.129843
 division	Grand Est	48.691467	5.566495
 division	Grand Lome	6.4206767	1.2115914
 division	Grand Port	-20.40385065	57.63305171301659
@@ -12591,11 +12632,13 @@ division	Irkutsk Region	56.6370122	104.719221
 division	Isfahan	32.6707877	51.6650002
 division	Ishikawa	36.570185	136.732454
 division	Islamabad	33.714095	73.066832
+division	Islamabad Capital Territory	33.63573935	73.20311557158395
 division	Israel	31.5	34.75
 division	Istanbul	41.0082	28.9784
 division	Istria	45.189488	13.889205
 division	Italian cruise ship	41.831176	11.491061
 division	Italy	43.382775	12.183629
+division	Itapúa	-26.833333	-55.833333
 division	Itasy	-19.0535322	46.99220107204388
 division	Ivanka Pri Dunaji	48.1885931	17.2578039
 division	Ivano-Frankivsk	48.9225224	24.7103188
@@ -12633,6 +12676,8 @@ division	Jhenaidha	23.547692	89.175424
 division	Jiangsu	33.077761	119.825116
 division	Jiangxi	27.458973	115.535326
 division	Jihlava	49.3984	15.5870
+division	Jihocesky Kraj	49.0864548	14.600172741470452
+division	Jihomoravsky Kraj	49.1249179	16.682771628867208
 division	Jilin	42.9995032	125.9816054
 division	Jining	35.4125047	116.5849266
 division	Johnson Atoll	16.730014876272758	-169.53297092697503
@@ -12693,6 +12738,7 @@ division	Kardzhali	41.57161625	25.399198889947556
 division	Karelia	62.6194031	33.4920267
 division	Kargil	34.5539	76.1349
 division	Karlovac County	45.2826564	15.4190997
+division	Karlovarsky Kraj	50.1753532	12.806086309968043
 division	Karlovy Vary	50.2304694	12.8710769
 division	Karnali	29.2989975	82.47499387507119
 division	Karnataka	15.3173	75.7139
@@ -12791,10 +12837,12 @@ division	Kosovska Mitrovica	42.8790424	20.8657862
 division	Kostanay Region	52.0615626	62.9372689
 division	Kostoliste	48.4467	16.9868
 division	Kostroma Region	58.37795228570701	43.268817529168906
+division	Koulikoro Region	12.8646318	-7.5561287
 division	Kozani	40.3007259	21.7883119
 division	Krabi	8.1111653	99.1097298
 division	Kragujevac	44.0125745	20.91877
 division	Kraljevo	43.7238	20.6873
+division	Kralovehradecky Kraj	50.40939265	15.68500539430977
 division	Kralovehradecky Region	50.40939265	15.68500539430977
 division	Kranj	46.2432635	14.3549501
 division	Kranjska Gora	46.485132	13.7843957
@@ -12837,6 +12885,8 @@ division	La Rioja	42.2871	-2.5396
 division	La Rioja AR	-29.62487279826059	-66.86176517635946
 division	La Rioja ES	42.31366609897772	-2.583157318755303
 division	Laamu Atoll	1.95328225	73.40034650846036
+division	Labe	11.7614835	-12.0118889
+division	Labe Region	11.779801270893191	-12.018973872151442
 division	Ladakh	34.152588	77.577049
 division	Lääne	58.9174716	23.749800066925467
 division	Lääne-Viru	59.2453182	26.3207945
@@ -12851,6 +12901,7 @@ division	Lalitpur	27.6676649	85.3183888179628
 division	Lambarene	-0.695844	10.2215963
 division	Lambayeque	-6.707066	-79.907239
 division	Lamentin	16.2703423	-61.6303025
+division	Lampang	18.6799728	99.7332501
 division	Lamphun	18.2661422	98.96749
 division	Lampung	-4.8555039	105.0272986
 division	Lamu	-2.2675396	40.9010641
@@ -12931,6 +12982,7 @@ division	Lualaba	-9.69691495	23.02254385532696
 division	Luanda	-8.8272699	13.2439512
 division	Luapula	-11.9004565	29.7949916
 division	Lubelskie	50.8586338	22.7732404
+division	Lubombo	-26.55452	31.86191156647494
 division	Lubuskie	52.18772680160436	15.244301130159887
 division	Lucerne	47.0502	8.3093
 division	Lucknow	26.851073	80.934261
@@ -12957,6 +13009,7 @@ division	Magallanes	-53.3527518	-71.5547782
 division	Magdalena	10.258546	-74.366995
 division	Maglaj	44.5455	18.1034
 division	Maha Sarakham	16.1861887	103.2955401
+division	Mahajanga	-15.7181492	46.3172577
 division	Maharashtra	19.7515	75.7139
 division	Maiduguri	11.8395375	13.1536214
 division	Maine	45.709097	-68.8590201
@@ -13099,6 +13152,7 @@ division	Montevideo	-34.823827	-56.211799
 division	Montserrado	6.4095537	-10.6059403
 division	Montserrat	16.73603205085212	-62.19174679903016
 division	Mopti	14.514489000000001	-3.646458060483871
+division	Mopti Region	14.4877275	-4.1892469
 division	Moquegua	-16.833333	-70.916667
 division	Moravian-Silesian Region	49.83883545	18.153614708783117
 division	Moravica District	43.772132	20.32936932343302
@@ -13245,6 +13299,7 @@ division	North-West	-26.524595	25.625515
 division	North-West CH	47.330017637070874	7.563016736235331
 division	North-West ZA	-26.1347819	25.6546729
 division	North Western Province	7.9745867	79.97200526412345
+division	Northeast Kenya	1.1613639999999998	40.19574646888216
 division	Northeastern Region MK	42.1670929	22.002467993493266
 division	Northern Cape	-29.573402	21.2051361
 division	Northern Ireland	54.60219	-6.687146
@@ -13279,6 +13334,7 @@ division	Nusa Tenggara Barat	-8.7892855	117.146169
 division	Nuwara Eliya	6.9738863	80.767127
 division	Nyandarua	-0.39155344999999997	36.49776838093413
 division	Nyeri	-0.4192962	36.9517005
+division	Nzerekore Region	8.372084107777571	-8.834666578951598
 division	O'Higgins	-34.534538	-71.0354822
 division	Oaxaca	17.0	-96.5
 division	Obalnokraska	45.6444142	13.990988309164146
@@ -13310,6 +13366,7 @@ division	Ontario	44.429	-79.377
 division	Oost-Vlaanderen	51.0375423	3.8117830113324556
 division	Oostende	51.210615	2.914232
 division	Opolskie	50.8918612	17.9321175
+division	Orange Walk	17.78310235	-88.85774666564073
 division	Orapa	-21.3361957	25.364964
 division	Oravska Lesna	49.3689979	19.1852951
 division	Orebro	59.2753	15.2134
@@ -13393,6 +13450,7 @@ division	Pest County	47.3715943	19.3452624
 division	Petah Tikva	32.0840	34.8878
 division	Peten	16.9	-89.9
 division	Pezinok	48.2854539	17.270194
+division	Phang Nga	8.5058295	98.5680335
 division	Phatthalung	7.543525	99.9971582
 division	Phayao	19.341673	100.1854539
 division	Phetchabun	16.4165039	101.1595234
@@ -13425,6 +13483,7 @@ division	Pljevlja	43.3565611	19.3584715
 division	Ploiesti	44.9417468	26.0236504
 division	Plovdiv	42.1418541	24.7499297
 division	Plzeň Region	49.7477415	13.3775249
+division	Plzensky Kraj	49.522810199999995	13.206311785137638
 division	Podgorica	42.4415238	19.2621081
 division	Podkarpackie	49.9927121	22.177107
 division	Podlaskie	53.2668455	22.8525787
@@ -13615,6 +13674,7 @@ division	San Luis Potosi	22.5000001	-100.5000001
 division	San Marcos	14.9533135	-91.91204441598504
 division	San Martin	-7.0	-76.833333
 division	San Miguelito	9.0551061	-79.4933063
+division	San Pedro	-24.25	-56.5
 division	San Salvador	13.6989939	-89.1914249
 division	Sangmelima	2.936176	11.975646
 division	Sankt Gallen	47.419862	9.374697
@@ -13700,6 +13760,7 @@ division	Sierra Leone	8.6400349	-11.8400269
 division	Siguiri	11.4195265	-9.1751513
 division	Sihanoukville	10.616351	103.512278
 division	Siirt	37.911394	42.115166
+division	Sikasso Region	11.3164979	-5.6777499
 division	Sikkim	27.601029	88.45413638680145
 division	Sikwane	-24.63852	26.406361
 division	Silistra	44.1191686	27.2613605
@@ -13801,6 +13862,7 @@ division	Sri Lanka	7.75	80.75
 division	St Eustatius	17.4865252	-62.9653116
 division	St-Louis	16.0326	-16.4818
 division	St. Lucia	13.8250489	-60.975036
+division	Stann Creek	16.9666599	-88.2247368
 division	Stara Boleslav	50.1999551	14.6786406
 division	Stara Zagora	42.4247421	25.6257235
 division	Stavropol	44.941379850000004	43.66309345141463
@@ -13892,6 +13954,7 @@ division	Tessin	46.3356506	8.753706
 division	Tete	-15.5205193	32.7682742
 division	Tetovo	42.0068297	20.9728556
 division	Texas	31.146868	-99.188758
+division	Thaa Atoll	2.36123205	73.13345167817616
 division	Thai Binh	20.5296832	106.3876068
 division	Thai Nguyen	21.592477	105.8435398
 division	Thailand	14.8971921	100.83273
@@ -13910,6 +13973,7 @@ division	Tierra del Fuego	-54.4071064	-67.8974895
 division	Tilburg	51.567213	5.047957
 division	Timbuktu	16.7719091	-3.0087272
 division	Timis	45.69131845	21.632126831488254
+division	Timisoara	45.7538355	21.2257474
 division	Timor-Leste	-8.809397	125.909527
 division	Tinghir	31.52133	-5.531164
 division	Tipaza	36.52727415	2.16836872941747
@@ -13926,7 +13990,9 @@ division	Tohoku	40.7280	141.2578
 division	Tokat	40.3235	36.5522
 division	Tokushima	34.0698307	134.5550353
 division	Tokyo	35.683441	139.766131
+division	Toledo	16.28022575	-88.55432196222363
 division	Tolemaida	4.2448718	-74.6580418
+division	Toliara	-23.354173	43.66966
 division	Tolima	4.065944	-75.215716
 division	Tongeren	50.774275	5.464625
 division	Topolcany	48.5594345	18.1754394
@@ -14021,6 +14087,7 @@ division	Uva Province	7.0788965	81.336532
 division	Uzbekistan	41.32373	63.9528098
 division	Uzhgorod	48.6223732	22.3022569
 division	Uzice	43.852499	19.847479
+division	Vaavu Atoll	3.4708637	73.545913
 division	Vaduz	47.1392862	9.5227962
 division	Västra Götaland	58.203026949999995	12.649730022427754
 division	Vakinankaratra	-19.71130945	46.83554814522457
