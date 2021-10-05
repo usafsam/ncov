@@ -15,8 +15,8 @@ inputs:
   metadata: data/Epicc_all_through_210407_noS.tsv
   sequences: data/Epicc_all_through_210407_noS.fas
 - name: gisaid
-  metadata: data/metadata_tsv_2021-10-04.tar.xz
-  sequences: data/sequences_fasta_2021-10-04.tar.xz
+  metadata: data/metadata_tsv_2021-10-05.tar.xz
+  sequences: data/sequences_fasta_2021-10-05.tar.xz
 
 
 builds:
