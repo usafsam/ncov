@@ -387,11 +387,21 @@ location	Foakaidhoo
 
 ### India
 # Kerala
+location	Alappuzha
+location	Calicut
 location	Ernakulam
 location	Idukki
+location	Kannur
+location	Kasaragod
+location	Kollam
+location	Kottayam
 location	Kozhikode
+location	Malappuram
+location	Palakkad
+location	Thiruvananthapuram
 location	Thrissur
 location	Tiruvantpuram
+location	Wayanad
 
 # Puducherry
 location	Karaikal
@@ -1251,7 +1261,6 @@ location	Barguna
 location	Barisal
 location	Barishal
 location	Bhola
-location	Brishal
 location	Jhalokathi
 location	Pirojpur
 
@@ -1670,12 +1679,16 @@ location	Sleman
 
 # Central Java
 location	Banyumas
+location	Blora
 location	Brebes
 location	Cilacap
+location	Demak
 location	Grobogan
 location	Jepara
+location	Klaten
 location	Magelang City
 location	Magelang Regency
+location	Pekalongan
 location	Pemalang
 location	Purwokerto
 location	Salatiga
@@ -2367,6 +2380,7 @@ location	Solwezi
 location	Zambezi
 
 # Southern Zambia
+location	Livingstone
 location	Monze
 location	Siavonga
 
@@ -2406,6 +2420,10 @@ location	Marondera
 
 # Mashonaland Central
 location	Bindura
+
+### Rwanda
+# Eastern Province RW
+location	Kirehe
 
 ### Egypt
 # Cairo
@@ -2496,6 +2514,27 @@ location	Meru
 
 # Northeast Kenya
 location	Garissa
+
+### Ethiopia
+# Addis Ababa
+location	Akaki Kality Woreda 07
+location	Akaki Kality Woreda 11
+location	Arada
+location	Arada W 04
+location	Bole Woreda 1
+location	Bole Woreda 11
+location	Kirkos Woreda 06
+location	Kolfe Keranyo Woreda 08
+location	Nefas Silik Lafto Woreda06
+location	Nefas Silk Lafto Woreda 01
+location	Nefas Silk Lafto Woreda 03
+location	Nefas Silk Lafto Woreda 06
+location	Nefas Silk Lafto Woreda 10
+location	Sankura
+location	Siliti
+location	Woreda 01
+location	Woreda 5
+location	Woreda 8
 
 ### Madagascar
 # Toliara
@@ -4367,6 +4406,7 @@ location	Bruere Allichamps
 location	Cellettes
 location	Chambray Les Tours
 location	Chartres
+location	Chateauroux
 location	Dreux
 location	Fondettes
 location	Issoudun
@@ -4699,6 +4739,7 @@ location	Cormoz
 location	Coulandon
 location	Cournon
 location	Cournon D Auvergne
+location	Cournon-D'Auvergne
 location	Courpiere
 location	Crandelles
 location	Craponne
@@ -5246,6 +5287,7 @@ location	Heist
 location	Jabbeke
 location	Knokke
 location	Knokke-Heist
+location	Lissewege
 location	Loppem
 location	Moerkerke
 location	Oedelem
@@ -5730,6 +5772,7 @@ location	Alsemberg
 location	Asse
 location	Beersel
 location	Beert
+location	Beigem
 location	Berg
 location	Bogaarden
 location	Borchtlombeek
@@ -6453,6 +6496,7 @@ location	Waalwijk
 
 # Flevoland
 location	Almere
+location	Emmeloord
 location	Lelystad
 location	Urk
 location	Zeewolde
@@ -6465,6 +6509,7 @@ location	Gorredijk
 location	Harkema
 location	Jubbega
 location	Kimswerd
+location	Munnekeburen
 location	Noordwolde
 location	Oosterstreek
 location	Oosterwolde
@@ -6595,6 +6640,7 @@ location	Hooghalen
 location	Koekange
 location	Meppel
 location	Nieuw Annerveen
+location	Nieuwe-Weerdinge
 location	Noordscheschut
 location	Norg
 location	Paterswolde
@@ -8144,6 +8190,7 @@ location	Samlino
 location	Sibin
 location	Siedlice
 location	Sielsko
+location	Sieroslaw
 location	Skoszewo
 location	Slawno
 location	Smuga
@@ -8517,6 +8564,7 @@ location	Gluszyna
 location	Gogolin
 location	Gorazdze
 location	Goscice
+location	Gracze
 location	Grobniki
 location	Głogówek
 location	Głuchołazy
@@ -8905,6 +8953,7 @@ location	Radomski
 location	Radomsko
 location	Radomszczanski
 location	Rawa Mazowiecka
+location	Rawski
 location	Rewica Szlachecka
 location	Rogow (Łódzkie)
 location	Sieradz
@@ -9389,6 +9438,7 @@ location	Brzozow
 location	Debica
 location	Dybawka
 location	Giedlarowa
+location	Grodzisko Gorne
 location	Jaksmanice
 location	Jaroslaw
 location	Kamionka-Kolonia
@@ -9425,6 +9475,7 @@ location	Tarnobrzeg
 location	Ustrzyki Dolne
 location	Waclawice
 location	Wola Zarczycka
+location	Wolka Letowska
 location	Wyszatyce
 location	Łańcut
 
@@ -9516,6 +9567,8 @@ location	Suchowola
 location	Suwałki
 location	Szudziałowo
 location	Twarogi-Mazury
+location	W Bialymstoku
+location	W Suwalkach
 location	Wojnowce
 location	Wysokie Mazowieckie
 location	Wysokomazowiecki
@@ -11061,6 +11114,7 @@ location	Los Molinos
 location	Maggiolo
 location	Marcelino Escalada
 location	Monte Vera
+location	Nelson
 location	Pavon Arriba
 location	Perez
 location	Progreso
@@ -11074,6 +11128,7 @@ location	Rueda
 location	San Carlos (Santa Fe)
 location	San Cristobal AR
 location	San Cristóbal
+location	San Geronimo Norte
 location	San Guillermo
 location	San Jose de la Esquina
 location	San Justo
@@ -11142,6 +11197,7 @@ location	Corzuela
 location	Fontana
 location	Gancedo
 location	General Pinedo
+location	General San Martin
 location	Gral. San Martin
 location	Isla del Cerrito
 location	Juan Jose Castelli
@@ -11154,10 +11210,12 @@ location	Machagai
 location	Makalle
 location	P.R.Saenz Pena
 location	Pampa del Indio
+location	Pampa del Infierno
 location	Presidencia de la Plaza
 location	Puerto Tirol
 location	Puerto Vilelas
 location	Quitilipi
+location	Ram El Buen Samaritano
 location	Resistencia
 location	Samuhu
 location	Santa Sylvina
@@ -11852,6 +11910,7 @@ location	Cerro Grande do Sul
 location	Charqueadas
 location	Cidreira
 location	Condor
+location	Coronel Bicaco
 location	Cotipora
 location	Cristal
 location	Cruz Alta
@@ -12045,6 +12104,7 @@ location	Viseu
 location	Almirante Tamandare
 location	Alto Paraiso
 location	Ampere
+location	Andira
 location	Antonina
 location	Apucarana
 location	Arapongas
@@ -12059,6 +12119,7 @@ location	Bela Vista do Paraiso
 location	Bituruna
 location	Boa Esperanca do Iguacu
 location	Borrazopolis
+location	Brazil
 location	California
 location	Cambara
 location	Cambe
@@ -12082,6 +12143,7 @@ location	Colombo
 location	Colorado
 location	Congonhinhas
 location	Cornelio Procopio
+location	Coronel Vivida
 location	Cruz Machado
 location	Curitiba
 location	Diamante do Sul
@@ -12115,6 +12177,7 @@ location	Jacarezinho
 location	Jaguapita
 location	Jaguariaiva
 location	Jandaia do Sul
+location	Japura
 location	Joaquim Tavora
 location	Joinville (Paraná)
 location	Jussara (Paraná)
@@ -12133,6 +12196,7 @@ location	Marechal Candido Rondon
 location	Marialva
 location	Marilandia do Sul
 location	Maringa
+location	Maripa
 location	Marumbi
 location	Maua Da Serra
 location	Medianeira
@@ -12153,6 +12217,7 @@ location	Paranavai
 location	Pato Branco
 location	Peabiru
 location	Perola
+location	Perola D’Oeste
 location	Pien
 location	Pinhais
 location	Pinhalao
@@ -12177,6 +12242,7 @@ location	Rio Azul BR
 location	Rolandia
 location	Salto do Lontra
 location	Santa Helena
+location	Santa Maria do Oeste
 location	Santa Tereza do Oeste
 location	Santa Terezinha de Itaipu
 location	Santo Antonio Da Platina
@@ -12613,6 +12679,7 @@ location	Conchas
 location	Cordeiropolis
 location	Coronel Macedo
 location	Cosmopolis
+location	Cosmorama
 location	Cotia
 location	Cravinhos
 location	Cruzeiro
@@ -12622,6 +12689,7 @@ location	Descalvado
 location	Diadema
 location	Divinolandia
 location	Dois Corregos
+location	Dolciopolis
 location	Dourado
 location	Dracena
 location	Echapora
@@ -12632,6 +12700,7 @@ location	Embu Das Artes
 location	Embu-Guacu
 location	Emilianopolis
 location	Espirito Santo do Pinhal
+location	Estrela D Oeste
 location	Estrela do Norte
 location	Euclides Da Cunha Paulista
 location	Fartura
@@ -12644,6 +12713,7 @@ location	Franco Da Rocha
 location	Galia
 location	Garca
 location	Gaviao Peixoto
+location	General Salgado
 location	Guaimbe
 location	Guaira
 location	Guapiacu
@@ -12674,6 +12744,7 @@ location	Iguape
 location	Ilha Bela
 location	Ilha Solteira
 location	Indaiatuba
+location	Indiapora
 location	Ipero
 location	Ipigua
 location	Iracemapolis
@@ -12723,6 +12794,8 @@ location	Luis Antonio
 location	Lupercio
 location	Macatuba
 location	Macaubal
+location	Macedonia
+location	Magda
 location	Mairinque
 location	Mairipora
 location	Manduri
@@ -12735,6 +12808,7 @@ location	Matao
 location	Maua
 location	Mendonca
 location	Meridiano
+location	Mesopolis
 location	Mineiros do Tiete
 location	Mira Estrela
 location	Mirandopolis
@@ -12772,6 +12846,7 @@ location	Oscar Bressane
 location	Oswaldo Cruz
 location	Ourinhos
 location	Ouro Verde
+location	Ouroeste
 location	Palestina
 location	Palmares Paulista
 location	Paraguacu Paulista
@@ -12779,12 +12854,15 @@ location	Paraibuna
 location	Paraiso BR
 location	Paranapanema
 location	Paranapua
+location	Parapua
 location	Pardinho
 location	Pareiras
 location	Pariquera-Acu
+location	Parisi
 location	Patrocinio Paulista
 location	Paulinia
 location	Pederneiras
+location	Pedranopolis
 location	Pedreira
 location	Pedro de Toledo
 location	Penapolis
@@ -12804,7 +12882,10 @@ location	Piratininga
 location	Pitangueiras
 location	Planalto
 location	Poa (São Paulo)
+location	Poloni
 location	Pontal
+location	Pontalinda
+location	Pontes Gestal
 location	Populina
 location	Porangaba
 location	Porto Feliz
@@ -12910,6 +12991,7 @@ location	Uchoa
 location	Uniao Paulista
 location	Uru
 location	Urupes
+location	Valentil Gentil
 location	Valentim Gentil
 location	Valimhos
 location	Valinhos
@@ -12941,17 +13023,21 @@ location	Lima Campos
 location	Marica (Maranhão)
 location	Mirador
 location	Miranda do Norte
+location	Nonoai
 location	Paco do Lumiar
 location	Pedreiras
 location	Peritoro
 location	Pinheiro
 location	Pirapemas
+location	Presidente Juscelino
 location	Rosario BR
 location	Santa Ines
 location	Santa Luzia (Maranhão)
 location	Sao Jose de Ribamar
 location	Sao Luis
+location	Sao Raimundo Das Mangabeiras
 location	Timon
+location	Trizidela do Vale
 location	Vargem Grande
 location	Vitoria do Mearim
 location	Ze Doca
@@ -13913,6 +13999,7 @@ location	Lima PE
 location	San Isidro PE
 
 # Junin
+location	Chanchamayo
 location	Huancayo
 
 # Ancash
@@ -13942,6 +14029,7 @@ location	Luya
 
 # Loreto
 location	Iquitos
+location	Yurimaguas
 
 ### Ecuador
 # Galapagos
@@ -14171,6 +14259,7 @@ location	Granada (Cundinamarca)
 location	Madrid CO
 location	Mosquera
 location	Pacho
+location	San Bernardo
 location	Silvania
 location	Soacha
 location	Suesca
@@ -14209,6 +14298,7 @@ location	Amalfi
 location	Andes
 location	Anza
 location	Apartado
+location	Arboletes
 location	Argelia
 location	Barbosa
 location	Bello
@@ -14273,6 +14363,7 @@ location	Bucarmanga
 location	Floridablanca
 location	Giron
 location	Girón
+location	Piedecuesta
 
 # Norte de Santander
 location	Cucuta
@@ -14284,6 +14375,7 @@ location	Cerete
 location	Cereté
 location	Cienaga de Oro
 location	Lorica
+location	Montelibano
 location	Monteria
 location	Planeta Rica
 location	Puerto Libertador
@@ -14468,8 +14560,6 @@ location	Vista Alegre
 
 # Panama Center
 location	24 De Diciembre
-location	24 de Diciembre
-location	Alcalde Diaz
 location	Alcalde Díaz
 location	Amelia D.de Icaza
 location	Amelia Denis de Icaza
@@ -14477,7 +14567,6 @@ location	Ancon
 location	Ancón
 location	Arnulfo A Madrid
 location	Arnulfo Arias
-location	Belisario Frias
 location	Belisario Frías
 location	Belisario Porras
 location	Bella Vista
@@ -14503,7 +14592,6 @@ location	Las Garzas
 location	Las Mañanitas
 location	Mananitas
 location	Mateo Iturralde
-location	Mañanitas
 location	Omar Torrijos
 location	Pacora
 location	Panama Metro
@@ -15487,7 +15575,6 @@ location	Rapides Parish
 location	Red River Parish
 location	Richland Parish
 location	Sabine Parish
-location	Saint Mary
 location	Saint Mary Parish
 location	St Anthony
 location	St Bernard Parish
@@ -15678,6 +15765,7 @@ location	Wood County WI
 # Illinois
 location	Adams County IL
 location	Alexander County IL
+location	Alexander County, Il
 location	Bond County
 location	Boone County IL
 location	Brown County IL
@@ -15687,41 +15775,59 @@ location	Carroll County IL
 location	Cass County IL
 location	Champaign County IL
 location	Christian County IL
+location	Christian County, Il
 location	Clark County IL
+location	Clark County, Il
 location	Clay County IL
+location	Clay County, Il
 location	Clinton County IL
+location	Clinton County, Il
 location	Coles County IL
+location	Coles County, Il
 location	Cook County IL
 location	Crawford County IL
+location	Crawford County, Il
 location	Cumberland County IL
+location	Cumberland County, Il
 location	DeWitt County IL
 location	Dekalb County IL
 location	Douglas County IL
 location	DuPage County
 location	Dupage County
 location	Edgar County
+location	Edgar County, Il
 location	Edwards County
+location	Edwards County, Il
 location	Effingham County
+location	Effingham County, Il
 location	Fayette County IL
+location	Fayette County, Il
 location	Ford County IL
 location	Franklin County IL
+location	Franklin County, Il
 location	Fulton County IL
 location	Gallatin County IL
+location	Gallatin County, Il
 location	Greene County IL
 location	Grundy County IL
 location	Hamilton County IL
+location	Hamilton County, Il
 location	Hancock County IL
 location	Hardin County IL
+location	Hardin County, Il
 location	Henderson
 location	Henderson County IL
 location	Henry County IL
 location	Iroquois County
 location	Jackson County IL
 location	Jasper County IL
+location	Jasper County, Il
 location	Jefferson County IL
+location	Jefferson County, Il
 location	Jersey County IL
 location	Jo Daviess County
 location	Johnson County IL
+location	Johnson County, Il
 location	Kane County IL
 location	Kankakee County
 location	Kendall County IL
@@ -15729,6 +15835,7 @@ location	Knox County IL
 location	LaSalle County IL
 location	Lake County IL
 location	Lawrence County IL
+location	Lawrence County, Il
 location	Lee County IL
 location	Livingston County IL
 location	Logan County IL
@@ -15736,6 +15843,7 @@ location	Macon County IL
 location	Macoupin County
 location	Madison County IL
 location	Marion County IL
+location	Marion County, Il
 location	Marshall County IL
 location	Mason County IL
 location	Massac County
@@ -15746,8 +15854,10 @@ location	Menard County IL
 location	Mercer County IL
 location	Monroe County IL
 location	Montgomery County IL
+location	Montgomery County, Il
 location	Morgan County IL
 location	Moultrie County
+location	Moultrie County, Il
 location	Ogle County IL
 location	Peoria County
 location	Perry County IL
@@ -15755,29 +15865,39 @@ location	Piatt County
 location	Pike County IL
 location	Pope County
 location	Pulaski County IL
+location	Pulaski County, Il
 location	Putnam County IL
 location	Randolph County IL
 location	Richland County IL
+location	Richland County, Il
 location	Rock Island County
 location	Saline County IL
 location	Sangamon County
 location	Schuyler County IL
 location	Scott County IL
 location	Shelby County IL
+location	Shelby County, Il
 location	St. Clair County IL
 location	Stark County
 location	Stephenson County IL
 location	Tazewell County IL
 location	Union County IL
+location	Union County, Il
+location	Unknown, Il
 location	Vermilion County
 location	Wabash County
+location	Wabash County, Il
 location	Warren County IL
 location	Washington County IL
+location	Washington County, Il
 location	Wayne County IL
+location	Wayne County, Il
 location	White County
+location	White County, Il
 location	Whiteside County
 location	Will County IL
 location	Williamson County IL
+location	Williamson County, Il
 location	Winnebago County IL
 location	Woodford County IL
 
@@ -15888,6 +16008,7 @@ location	Laporte County
 location	Marion County IN
 location	Newton County IN
 location	Porter County
+location	St Joseph County
 location	St. Joseph County
 location	Tippecanoe County
 location	Vermillion County
@@ -15907,6 +16028,7 @@ location	Marquette County MI
 location	Midland County MI
 location	Oakland County
 location	Van Buren County
+location	Wayne County
 location	Wayne County MI
 
 # Georgia
@@ -16000,6 +16122,7 @@ location	Barnwell County
 location	Beaufort County SC
 location	Berkeley County SC
 location	Calhoun County SC
+location	Canyon
 location	Charleston County
 location	Cherokee County SC
 location	Chester County SC
@@ -16242,6 +16365,7 @@ location	Meriden
 location	Middlesex County CT
 location	New Haven County
 location	New London County
+location	New London Couty
 location	Newtown CT
 location	North Haven
 location	Northford
@@ -17005,6 +17129,10 @@ division	Papua New Guinea
 division	West New Britain
 division	East New Britain
 
+### Solomon Islands
+
+### Vanuatu
+
 ### New Zealand
 division	Southland
 division	Otago
@@ -17379,7 +17507,6 @@ division	KwaZulu-Natal
 ### Zambia
 division	Western
 division	North-Western Zambia
-division	Livingstone
 division	Southern Zambia
 division	Zambia
 division	Copperbelt
@@ -17418,8 +17545,9 @@ division	Mashonaland Central
 division	Burundi
 
 ### Rwanda
-division	Rwanda
 division	Kigali
+division	Rwanda
+division	Eastern Province RW
 
 ### Egypt
 division	Nile River Cruise
@@ -17548,6 +17676,9 @@ division	Maroodi Jeex
 division	Mudug
 division	Somalia
 division	Awdal
+
+### Seychelles
+division	Seychelles
 
 ### Mauritius
 division	Savanne
@@ -19084,6 +19215,8 @@ country	Japan
 country	French Polynesia
 country	Australia
 country	Papua New Guinea
+country	Solomon Islands
+country	Vanuatu
 country	New Zealand
 country	Fiji
 
@@ -19139,6 +19272,7 @@ country	Djibouti
 country	Union of the Comoros
 country	Madagascar
 country	Somalia
+country	Seychelles
 country	Mauritius
 
 # Europe
@@ -19266,6 +19400,8 @@ clade_membership	20H (Beta, V2)
 clade_membership	20I (Alpha, V1)
 clade_membership	20J (Gamma, V3)
 clade_membership	21A (Delta)
+clade_membership	21I (Delta)
+clade_membership	21J (Delta)
 clade_membership	21B (Kappa)
 clade_membership	21C (Epsilon)
 clade_membership	21D (Eta)

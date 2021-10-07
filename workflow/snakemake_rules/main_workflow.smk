@@ -10,16 +10,24 @@ rule sanitize_metadata:
     log:
         "logs/sanitize_metadata_{origin}.txt"
     params:
+        metadata_id_columns=config["sanitize_metadata"]["metadata_id_columns"],
+        database_id_columns=config["sanitize_metadata"]["database_id_columns"],
         parse_location_field=f"--parse-location-field {config['sanitize_metadata']['parse_location_field']}" if config["sanitize_metadata"].get("parse_location_field") else "",
         rename_fields=config["sanitize_metadata"]["rename_fields"],
         strain_prefixes=config["strip_strain_prefixes"],
+        error_on_duplicate_strains="--error-on-duplicate-strains" if config["sanitize_metadata"].get("error_on_duplicate_strains") else "",
+    resources:
+        mem_mb=2000
     shell:
         """
         python3 scripts/sanitize_metadata.py \
             --metadata {input.metadata} \
+            --metadata-id-columns {params.metadata_id_columns:q} \
+            --database-id-columns {params.database_id_columns:q} \
             {params.parse_location_field} \
             --rename-fields {params.rename_fields:q} \
             --strip-prefixes {params.strain_prefixes:q} \
+            {params.error_on_duplicate_strains} \
             --output {output.metadata} 2>&1 | tee {log}
         """
 
@@ -1305,37 +1313,10 @@ rule include_hcov19_prefix:
             --output-tip-frequencies {output.tip_frequencies}
         """
 
-rule incorporate_travel_history:
-    message: "Adjusting main auspice JSON to take into account travel history"
-    input:
-        auspice_json = rules.include_hcov19_prefix.output.auspice_json,
-        colors = lambda w: config["builds"][w.build_name]["colors"] if "colors" in config["builds"][w.build_name] else ( config["files"]["colors"] if "colors" in config["files"] else rules.colors.output.colors.format(**w) ),
-        lat_longs = config["files"]["lat_longs"]
-    params:
-        sampling = _get_sampling_trait_for_wildcards,
-        exposure = _get_exposure_trait_for_wildcards
-    output:
-        auspice_json = "results/{build_name}/ncov_with_accessions_and_travel_branches.json"
-    log:
-        "logs/incorporate_travel_history_{build_name}.txt"
-    benchmark:
-        "benchmarks/incorporate_travel_history_{build_name}.txt"
-    conda: config["conda_environment"]
-    shell:
-        """
-        python3 ./scripts/modify-tree-according-to-exposure.py \
-            --input {input.auspice_json} \
-            --colors {input.colors} \
-            --lat-longs {input.lat_longs} \
-            --sampling {params.sampling} \
-            --exposure {params.exposure} \
-            --output {output.auspice_json} 2>&1 | tee {log}
-        """
-
 rule finalize:
     message: "Remove extraneous colorings for main build and move frequencies"
     input:
-        auspice_json = lambda w: rules.include_hcov19_prefix.output.auspice_json if config.get("skip_travel_history_adjustment", False) else rules.incorporate_travel_history.output.auspice_json,
+        auspice_json = lambda w: rules.include_hcov19_prefix.output.auspice_json,
         frequencies = rules.include_hcov19_prefix.output.tip_frequencies,
         root_sequence_json = rules.export.output.root_sequence_json
     output:

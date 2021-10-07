@@ -112,14 +112,6 @@ Builds support any named attributes that can be referenced by subsampling scheme
 * description: Name to assign the default build when a user has not defined any other entries in the `builds` config.
 * default: `default-build`
 
-## exposure
-* type: object
-* description: Build-specific exposure history inference.
-
-### default
-* type: object
-* description: Default exposure history inference at the country level.
-
 ## files
 * type: object
 * description: Additional files used to configure tools used by the workflow (e.g., alignment references, names of strains to exclude during filtering, etc.).
@@ -513,7 +505,32 @@ Valid attributes for list entries in `inputs` are provided below.
 
 ## sanitize_metadata
 * type: object
-* description: Parameters to configure how to sanitize metadata to a Nextstrain-compatible format.
+* description: Parameters to configure how to sanitize metadata to a Nextstrain-compatible format. The sanitize metadata script resolves duplicate records using database ids, parses a GISAID-style location field into Nextstrain-style location fields, strips prefixes from strain names, and renames fields in that order.
+
+### metadata_id_columns
+* type: object
+* description: A list of valid strain name columns in the metadata. The sanitize metadata script will check attempt to use the first of these columns that exists in the metadata. It will exit with an error, if none of the columns exist.
+* default:
+```yaml
+  - strain
+  - name
+  - "Virus name"
+```
+
+### database_id_columns
+* type: object
+* description: A list of columns representing external database ids for metadata records. These unique ids represent a snapshot of data at a specific time for a given strain name. The sanitize metadata script resolves duplicate metadata records for the same strain name by selecting the record with the latest database id. Multiple database id columns allow the script to resolve duplicates when one or more columns has ambiguous values (e.g., "?"). Deduplication occurs before renaming of columns, so the default values include GISAID's own "Accession ID" as well as Nextstrain-style database ids.
+* default:
+```yaml
+  - "Accession ID"
+  - gisaid_epi_isl
+  - genbank_accession
+```
+
+### error_on_duplicate_strains
+* type: boolean
+* description: Exit the sanitize metadata script with an error when any strains have multiple records in the metadata. The script writes list of all duplicate strains to a file named like `<input>.duplicates.txt` that users can review and use to address unexpected duplicates.
+* default: `false`
 
 ### parse_location_field
 * type: string
@@ -675,7 +692,7 @@ hCoV-19/USA/CZB-3456/2021	-3.1
 traits:
   default:
     sampling_bias_correction: 2.5
-    columns: ["country_exposure"]
+    columns: ["country"]
   washington:
     # Override default sampling bias correction for
     # "washington" build and continue to use default
@@ -693,7 +710,7 @@ Each named traits configuration (`default` or build-named) supports the followin
 ### columns
 * type: array
 * description: A list of columns from the metadata for which ancestral trait values should be inferred for ancestral nodes.
-* default: `["country_exposure"]`
+* default: `["country"]`
 
 ## tree
 * type: object
