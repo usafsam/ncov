@@ -59,6 +59,10 @@ builds:
   usafsam-only:
     subsampling_scheme: usafsam-only
 
+  # Build with only EPICC sequences
+  epicc-only:
+    subsampling_scheme: epicc-only
+
 # Ensure inclusion of all the EPICC samples
 filter:
   epicc:
@@ -193,6 +197,13 @@ subsampling:
       group_by: month
       seq_per_group: 2000
       query: --query '(strain.str.contains("USAFSAM")) & (gisaid == "yes")'
+
+  epicc-only:
+    # Same as the other EPICC build, but without any context
+    epicc:
+      group_by: month
+      seq_per_group: 2000
+      query: --query '(epicc == "yes")'
 
 # Here, you can specify what type of auspice_config you want to use
 # and what description you want. These will apply to all the above builds.
