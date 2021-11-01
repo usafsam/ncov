@@ -74,8 +74,6 @@ subsampling:
   usafsam-all:
     # Focal samples which are all USAFSAM
     usafsam:
-      group_by: month
-      seq_per_group: 2000
       # Use augur filter's query argument to filter strains with pandas-style logic expressions.
       # This can be easier to read than the corresponding filter by exclusion.
       # exclude: "--exclude-where 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=U.S. Air Force School of Aerospace Medicine'"
@@ -91,6 +89,14 @@ subsampling:
       priorities:
         type: proximity
         focus: usafsam
+
+    # Contextual samples from the rest of the world
+    contextual:
+      group_by: region month
+      # seq_per_group: 10
+      max_sequences: 500
+      # exclude: --exclude-where 'region={region}'
+      query: --query '(~ strain.str.contains("USAFSAM")) & (gisaid == "yes")'
 
   usafsam-division:
     # Focal samples which have all USAFSAM specimens in a specific
@@ -194,15 +200,11 @@ subsampling:
   usafsam-only:
     # Same as the other USAFSAM build, but without any context
     usafsam:
-      group_by: month
-      seq_per_group: 2000
       query: --query '(strain.str.contains("USAFSAM")) & (gisaid == "yes")'
 
   epicc-only:
     # Same as the other EPICC build, but without any context
     epicc:
-      group_by: month
-      seq_per_group: 2000
       query: --query '(epicc == "yes")'
 
 # Here, you can specify what type of auspice_config you want to use
