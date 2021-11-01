@@ -179,7 +179,7 @@ subsampling:
     # Samples genetically related to the samples above
     epicc-related:
       group_by: region month
-      max_sequences: 500
+      max_sequences: 250
       query: --query '(gisaid == "yes")'
       priorities:
         type: proximity
@@ -188,7 +188,7 @@ subsampling:
     # Fill out the rest of the globe
     epicc-contextual:
       group_by: region month
-      max_sequences: 500
+      max_sequences: 250
       query: --query '(gisaid == "yes")'
 
   usafsam-only:
