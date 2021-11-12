@@ -73,7 +73,18 @@ filter:
 subsampling:
   usafsam-all:
     # Focal samples which are all USAFSAM
-    usafsam:
+    usafsam_early:
+      # Use augur filter's query argument to filter strains with pandas-style logic expressions.
+      # This can be easier to read than the corresponding filter by exclusion.
+      # exclude: "--exclude-where 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=U.S. Air Force School of Aerospace Medicine'"
+      group_by: month
+      max_sequences: 1000
+      query: --query '(submitting_lab == ["United States Air Force School of Aerospace
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) & (gisaid == "yes")'
+
+    usafsam_late:
       # Use augur filter's query argument to filter strains with pandas-style logic expressions.
       # This can be easier to read than the corresponding filter by exclusion.
       # exclude: "--exclude-where 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=Public Health, United States Air Force School of Aerospace Medicine' 'submitting_lab!=U.S. Air Force School of Aerospace Medicine'"
@@ -83,10 +94,10 @@ subsampling:
         Medicine"]) & (gisaid == "yes")'
 
   # Samples that are genetically related to the focal samples
-    related:
+    related_early:
       group_by: region month
       # seq_per_group: 25
-      max_sequences: 500
+      max_sequences: 200
       # exclude: --exclude-where 'region!={region}'
       query: --query '(submitting_lab != ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
@@ -94,13 +105,27 @@ subsampling:
         Medicine"]) & (gisaid == "yes")'
       priorities:
         type: proximity
-        focus: usafsam
+        focus: usafsam_early
+
+  # Samples that are genetically related to the focal samples
+    related:
+      group_by: region month
+      # seq_per_group: 25
+      max_sequences: 300
+      # exclude: --exclude-where 'region!={region}'
+      query: --query '(submitting_lab != ["United States Air Force School of Aerospace
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) & (gisaid == "yes")'
+      priorities:
+        type: proximity
+        focus: usafsam_late
 
     # Contextual samples from the rest of the world
     contextual:
       group_by: region month
       # seq_per_group: 10
-      max_sequences: 500
+      max_sequences: 100
       # exclude: --exclude-where 'region={region}'
       query: --query '(submitting_lab != ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
@@ -110,8 +135,8 @@ subsampling:
   usafsam-division:
     # Focal samples which have all USAFSAM specimens in a specific
     # administrative subdivision
-    division:
-      group_by: division month
+    division_early:
+      group_by: month
       # seq_per_group: 10
       max_sequences: 500
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
@@ -119,29 +144,46 @@ subsampling:
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
         Medicine"]) & (division == "{division}") & (gisaid == "yes")'
 
+    division_late:
+      query: --query '(submitting_lab == ["United States Air Force School of Aerospace
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) & (division == "{division}") & (gisaid == "yes")'
+
     # Samples genetically related to the Focal samples
-    # This rule is based on DeMorgan's laws
-    related:
+    # These rules are based on DeMorgan's laws
+    related_early:
       group_by: region month
-      max_sequences: 500
+      max_sequences: 200
       query: --query '((submitting_lab != ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
         Medicine"]) | (division != "{division}")) & (gisaid == "yes")'
       priorities:
         type: proximity
-        focus: division
+        focus: division_early
+
+    related_late:
+      group_by: region month
+      max_sequences: 300
+      query: --query '((submitting_lab != ["United States Air Force School of Aerospace
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) | (division != "{division}")) & (gisaid == "yes")'
+      priorities:
+        type: proximity
+        focus: division_late
 
     # Fill out the rest of the globe
     contextual:
       group_by: region month
-      max_sequences: 500
+      max_sequences: 100
       query: --query '(gisaid == "yes")'
 
   usafsam-country:
     # Focal samples which have all USAFSAM specimens in a specific country
-    country:
-      group_by: country month
+    country_early:
+      group_by: month
       # seq_per_group: 10
       max_sequences: 500
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
@@ -149,28 +191,45 @@ subsampling:
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
         Medicine"]) & (country == "{country}") & (gisaid == "yes")'
 
+    country_late:
+      query: --query '(submitting_lab == ["United States Air Force School of Aerospace
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) & (country == "{country}") & (gisaid == "yes")'
+
     # Samples genetically related to the Focal samples
-    # This rule is based on DeMorgan's laws
-    related:
+    # These rules are based on DeMorgan's laws
+    related_early:
       group_by: region month
-      max_sequences: 500
+      max_sequences: 200
       query: --query '((submitting_lab != ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
         Medicine"]) | (country != "{country}")) & (gisaid == "yes")'
       priorities:
         type: proximity
-        focus: country
+        focus: country_early
+
+    related_late:
+      group_by: region month
+      max_sequences: 300
+      query: --query '((submitting_lab != ["United States Air Force School of Aerospace
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) | (country != "{country}")) & (gisaid == "yes")'
+      priorities:
+        type: proximity
+        focus: country_late
 
     # Fill out the rest of the globe
     contextual:
       group_by: region month
-      max_sequences: 500
+      max_sequences: 100
       query: --query '(gisaid == "yes")'
 
   usafsam-noncountry:
     # Focal samples which have all USAFSAM specimens outside a specific country
-    noncountry:
+    noncountry_early:
       group_by: country month
       # seq_per_group: 10
       max_sequences: 500
@@ -179,23 +238,40 @@ subsampling:
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
         Medicine"]) & (country != "{country}") & (gisaid == "yes")'
 
+    noncountry_late:
+      query: --query '(submitting_lab == ["United States Air Force School of Aerospace
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) & (country != "{country}") & (gisaid == "yes")'
+
     # Samples genetically related to the Focal samples
-    # This rule is based on DeMorgan's laws
-    related:
+    # These rules are based on DeMorgan's laws
+    related_early:
       group_by: region month
-      max_sequences: 500
+      max_sequences: 200
       query: --query '((submitting_lab != ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
         Medicine"]) | (country == "{country}")) & (gisaid == "yes")'
       priorities:
         type: proximity
-        focus: noncountry
+        focus: noncountry_early
+
+    related_late:
+      group_by: region month
+      max_sequences: 300
+      query: --query '((submitting_lab != ["United States Air Force School of Aerospace
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) | (country == "{country}")) & (gisaid == "yes")'
+      priorities:
+        type: proximity
+        focus: noncountry_late
 
     # Fill out the rest of the globe
     contextual:
       group_by: region month
-      max_sequences: 500
+      max_sequences: 100
       query: --query '(gisaid == "yes")'
 
   epicc:
@@ -220,7 +296,15 @@ subsampling:
 
   usafsam-only:
     # Same as the other USAFSAM build, but without any context
-    usafsam:
+    usafsam_early:
+      group_by: month
+      max_sequences: 1000
+      query: --query '(submitting_lab == ["United States Air Force School of Aerospace
+        Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
+        "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
+        Medicine"]) & (gisaid == "yes")'
+
+    usafsam_late:
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
