@@ -10,6 +10,9 @@
 
 # In this example, we use these default methods. See other templates for examples of how to customize this subsampling scheme.
 
+custom_rules:
+- my_profiles/usaf/subsampling_ranges.smk
+
 inputs:
 - name: epicc
   metadata: data/Epicc_all_through_211021.tsv
