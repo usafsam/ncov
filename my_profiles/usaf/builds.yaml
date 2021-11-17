@@ -111,7 +111,7 @@ subsampling:
         focus: usafsam_early
 
   # Samples that are genetically related to the focal samples
-    related:
+    related_late:
       group_by: region month
       # seq_per_group: 25
       max_sequences: 300
