@@ -32,8 +32,8 @@ rule all_regions:
     input:
         auspice_json = expand("auspice/{prefix}_{build_name}.json", prefix=config["auspice_json_prefix"], build_name=BUILD_NAMES),
         tip_frequencies_json = expand("auspice/{prefix}_{build_name}_tip-frequencies.json", prefix=config["auspice_json_prefix"], build_name=BUILD_NAMES),
-        dated_auspice_json = expand("auspice/{prefix}_{build_name}_{date}.json", prefix=config["auspice_json_prefix"], build_name=BUILD_NAMES, date=get_todays_date()),
-        dated_tip_frequencies_json = expand("auspice/{prefix}_{build_name}_{date}_tip-frequencies.json", prefix=config["auspice_json_prefix"], build_name=BUILD_NAMES, date=get_todays_date())
+        dated_auspice_json = expand("auspice/{prefix}_{build_name}_{date}.json", prefix=config["auspice_json_prefix"], build_name=BUILD_NAMES, date=config.get("build_date", get_todays_date())),
+        dated_tip_frequencies_json = expand("auspice/{prefix}_{build_name}_{date}_tip-frequencies.json", prefix=config["auspice_json_prefix"], build_name=BUILD_NAMES, date=config.get("build_date", get_todays_date()))
 
 # This cleans out files to allow re-run of 'normal' run with `export`
 # to check lat-longs & orderings
@@ -271,7 +271,7 @@ onstart:
     message.append("Further results will appear in this 🧵.")
     send_slack_message(". ".join(message))
 
-# onsuccess handler is executed if the workflow finished without error. 
+# onsuccess handler is executed if the workflow finished without error.
 onsuccess:
     message = "✅ This pipeline has successfully finished 🎉"
     send_slack_message(message)

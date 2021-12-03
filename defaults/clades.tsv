@@ -94,6 +94,7 @@ clade	gene	site	alt
 
 21D (Eta)	nuc	14407	T
 21D (Eta)	nuc	21717	G
+21D (Eta)	nuc	26305	T
 21D (Eta)	nuc	24224	C
 21D (Eta)	nuc	24748	T
 
@@ -131,3 +132,10 @@ clade	gene	site	alt
 21J (Delta)	nuc	11332	G
 21J (Delta)	nuc	19220	T
 21J (Delta)	nuc	27874	T
+
+21K (Omicron)	nuc	8393	A
+21K (Omicron)	nuc	13195	C
+21K (Omicron)	nuc	18163	G
+21K (Omicron)	nuc	25000	T
+21K (Omicron)	nuc	27259	C
+
