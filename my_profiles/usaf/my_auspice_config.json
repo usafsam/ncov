@@ -106,6 +106,7 @@
   "filters": [
     "recency",
     "clade_membership",
+    "emerging_lineage",
     "location",
     "division",
     "country",
@@ -114,7 +115,7 @@
     "author",
     "originating_lab",
     "submitting_lab",
-    "pangolin_lineage"
+    "pango_lineage"
   ],
   "panels": [
     "tree",
