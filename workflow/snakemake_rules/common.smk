@@ -68,7 +68,15 @@ def _get_filter_min_length_query(wildcards):
         # We only annotate input-specific columns on metadata when there are
         # multiple inputs.
         if len(inputs) > 1:
-            query_parts.append(f"({input_name} == 'yes' & _length >= {min_length})")
+            # Input names can contain characters that make them invalid Python
+            # variable names. As such, we escape the column names with backticks
+            # as recommended by pandas:
+            #
+            # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html
+            #
+            # We escape the backticks with backslashes to prevent the bash shell
+            # from expanding the contents between the backticks as a subprocess.
+            query_parts.append(f"(\`{input_name}\` == 'yes' & _length >= {min_length})")
         else:
             query_parts.append(f"(_length >= {min_length})")
 
@@ -115,7 +123,12 @@ def _get_unified_metadata(wildcards):
     `combine_input_metadata` rule (and `sanitize_metadata` rule) to make it.
     """
     if len(list(config["inputs"].keys()))==1:
-        return "results/sanitized_metadata_{origin}.tsv.xz".format(origin=list(config["inputs"].keys())[0])
+        input_name, input_record = list(config["inputs"].items())[0]
+        if input_record.get("skip_sanitize_metadata"):
+            return _get_path_for_input("metadata", input_name)
+        else:
+            return "results/sanitized_metadata_{origin}.tsv.xz".format(origin=input_name)
+
     return "results/combined_metadata.tsv.xz"
 
 def _get_unified_alignment(wildcards):
