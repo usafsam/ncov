@@ -11,7 +11,7 @@
 # In this example, we use these default methods. See other templates for examples of how to customize this subsampling scheme.
 
 custom_rules:
-- my_profiles/usaf/subsampling_ranges.smk
+- usaf_profiles/usafsam/subsampling_ranges.smk
 
 inputs:
 - name: epicc
@@ -323,8 +323,8 @@ subsampling:
 # If you want to specify specific files for each build - you can!
 # See the 'example_advanced_customization' builds.yaml
 files:
-  auspice_config: my_profiles/usaf/my_auspice_config.json
-  description: my_profiles/usaf/my_description.md
+  auspice_config: usaf_profiles/usafsam/my_auspice_config.json
+  description: usaf_profiles/usafsam/my_description.md
 
 # Avoid this exception:
 # "Where there’s SAMPLING_TRAIT we should always have EXPOSURE_TRAIT"
