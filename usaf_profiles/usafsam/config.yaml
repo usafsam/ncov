@@ -8,7 +8,7 @@
 
 configfile:
 - defaults/parameters.yaml   # Pull in the default values
-- my_profiles/usaf/builds.yaml   # Pull in our list of desired builds
+- usaf_profiles/usafsam/builds.yaml   # Pull in our list of desired builds
 
 # Set the maximum number of cores you want Snakemake to use for this pipeline.
 cores: 24
