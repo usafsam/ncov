@@ -5,6 +5,10 @@ We also use this change log to document new features that maintain backward comp
 
 ## New features since last version update
 
+- 29 April 2022: Include multiple timespans in Nextstrain profile builds. [PR 910](https://github.com/nextstrain/ncov/pull/910)
+
+- 29 April 2022: Update default mask parameters to mask 200 bases from the end of the genome rather than the existing 50. This was necessary because there is a large deletion in this region in circulating 21L viruses. This deletion is causing problems with alignment and the resulting mis-alignment appears as excess mutations in the tree. [PR 939](https://github.com/nextstrain/ncov/pull/939).
+
 - 27 April 2022: Include new clades 22A, 22B and 22C, where 22A corresponds to Pango lineage BA.4, 22B corresponds to Pango lineage BA.5 and 22C corresponds to Pango lineage BA.2.12.1. Please see [PR 933](https://github.com/nextstrain/ncov/pull/933) for rationale behind these clade updates.
 
 - 27 April 2022: Convert to hierarchical clade definitions. This streamlines clade definitions significantly and makes it easier to understand clade relationships. Changes can be seen in `defaults/clades.tsv` and in [PR 855](https://github.com/nextstrain/ncov/pull/855). **This feature requires Augur v14.0 or above.** To upgrade Augur follow the installation guide at [docs.nextstrain.org](https://docs.nextstrain.org/en/latest/install.html).
@@ -63,7 +67,7 @@ We also use this change log to document new features that maintain backward comp
 
 ## New features since last version update
 
- - 11 August 2021: Add support for "Sequences" and "Patient status metadata" downloads from GISAID's search interface including [documentation in the tutorial of how to use these data](../analysis/data-prep.html#curate-data-from-gisaid-search-and-downloads). ([#701](https://github.com/nextstrain/ncov/pull/701))
+ - 11 August 2021: Add support for "Sequences" and "Patient status metadata" downloads from GISAID's search interface including [documentation in the tutorial of how to use these data](../guides/data-prep.html#curate-data-from-gisaid-search-and-downloads). ([#701](https://github.com/nextstrain/ncov/pull/701))
  - 6 August 2021: We've replaced the mechanisms that support remote file inputs (e.g. `s3://` URLs) to improve internal workflow structure, extend support to `gs://`, `http://`, and `https://` URLs, and expand support for compressed inputs.
    Our [remote file inputs documentation](remote_inputs) is updated to reflect the changes.
 
