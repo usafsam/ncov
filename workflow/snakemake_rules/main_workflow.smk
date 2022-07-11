@@ -92,7 +92,7 @@ rule align:
             --sequences {input.sequences} \
             --strip-prefixes {params.strain_prefixes:q} \
             --output /dev/stdout 2> {params.sanitize_log} \
-            | nextalign2 run \
+            | nextalign run \
             --jobs={threads} \
             --reference {input.reference} \
             --genemap {input.genemap} \
@@ -462,8 +462,8 @@ rule prepare_nextclade:
     conda: config["conda_environment"]
     shell:
         """
-        nextclade2 --version
-        nextclade2 dataset get --name {params.name} --output-zip {output.nextclade_dataset}
+        nextclade --version
+        nextclade dataset get --name {params.name} --output-zip {output.nextclade_dataset}
         """
 
 rule build_align:
@@ -499,7 +499,7 @@ rule build_align:
             --sequences {input.sequences} \
             --strip-prefixes {params.strain_prefixes:q} \
             --output /dev/stdout 2> {params.sanitize_log} \
-            | nextclade2 run \
+            | nextclade run \
             --jobs {threads} \
             --input-dataset {input.nextclade_dataset} \
             --output-tsv {output.nextclade_qc} \
@@ -1471,7 +1471,7 @@ rule include_hcov19_prefix:
 rule finalize:
     message: "Remove extraneous colorings for main build and move frequencies"
     input:
-        auspice_json = lambda w: rules.include_hcov19_prefix.output.auspice_json,
+        auspice_json = rules.include_hcov19_prefix.output.auspice_json,
         frequencies = rules.include_hcov19_prefix.output.tip_frequencies,
         root_sequence_json = rules.export.output.root_sequence_json
     output:
