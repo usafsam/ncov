@@ -19,8 +19,8 @@ inputs:
   metadata: data/Epicc_all_through_211021.tsv
   sequences: data/Epicc_all_through_211021.fas
 - name: gisaid
-  metadata: data/metadata_2022-10-19_22-13.tsv.gz
-  sequences: data/sequences_fasta_2022-10-19.tar.xz
+  metadata: data/metadata_2022-11-25_00-16.tsv.gz
+  sequences: data/sequences_fasta_2022-11-25.tar.xz
 
 
 builds:
@@ -99,8 +99,8 @@ subsampling:
 
     usafsam:
       combine:
-        - usafsam_early
-        - usafsam_late
+      - usafsam_early
+      - usafsam_late
 
   # Samples that are genetically related to the focal samples
     related:
@@ -147,8 +147,8 @@ subsampling:
 
     division:
       combine:
-        - division_early
-        - division_late
+      - division_early
+      - division_late
 
     # Samples genetically related to the Focal samples
     # This rule is based on DeMorgan's laws
@@ -188,8 +188,8 @@ subsampling:
 
     country:
       combine:
-        - country_early
-        - country_late
+      - country_early
+      - country_late
 
     # Samples genetically related to the Focal samples
     # This rule is based on DeMorgan's laws
@@ -229,8 +229,8 @@ subsampling:
 
     noncountry:
       combine:
-        - noncountry_early
-        - noncountry_late
+      - noncountry_early
+      - noncountry_late
 
     # Samples genetically related to the Focal samples
     # This rule is based on DeMorgan's laws
