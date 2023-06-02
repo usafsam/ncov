@@ -844,7 +844,7 @@ rule refine:
         date_inference = config["refine"]["date_inference"],
         divergence_unit = config["refine"]["divergence_unit"],
         clock_filter_iqd=f"--clock-filter-iqd {config['refine']['clock_filter_iqd']}" if config["refine"].get("clock_filter_iqd") else "",
-        keep_polytomies = "--keep-polytomies" if config["refine"].get("keep_polytomies", False) else "",
+        keep_polytomies = "--keep-polytomies" if config["refine"].get("keep_polytomies", False) else "--stochastic-resolve",
         timetree = "" if config["refine"].get("no_timetree", False) else "--timetree"
     conda: config["conda_environment"]
     shell:
@@ -1029,12 +1029,17 @@ rule clade_files:
         clade_files = _get_clade_files
     output:
         "results/{build_name}/clades.tsv"
+    params:
+        name_mapping = lambda w: "--name-mapping " + config["files"]["clade_name_mapping"]\
+                                 if "clade_name_mapping" in config["files"] else ""
     benchmark:
         "benchmarks/clade_files_{build_name}.txt"
     shell:
-        '''
-        cat {input.clade_files} > {output}
-        '''
+        """
+        python3 scripts/rename_clades.py --input-clade-files {input.clade_files} \
+            {params.name_mapping} \
+            --output-clades {output}
+        """
 
 rule clades:
     message: "Adding internal clade labels"
@@ -1070,7 +1075,7 @@ rule emerging_lineages:
         emerging_lineages = config["files"]["emerging_lineages"],
         clades = config["files"]["clades"]
     output:
-        clade_data = "results/{build_name}/temp_emerging_lineages.json"
+        clade_data = "results/{build_name}/emerging_lineages.json"
     log:
         "logs/emerging_lineages_{build_name}.txt"
     benchmark:
@@ -1084,26 +1089,10 @@ rule emerging_lineages:
         augur clades --tree {input.tree} \
             --mutations {input.nuc_muts} {input.aa_muts} \
             --clades {input.emerging_lineages} \
+            --membership-name emerging_lineage \
+            --label-name emerging_lineage \
             --output-node-data {output.clade_data} 2>&1 | tee {log}
         """
-
-rule rename_emerging_lineages:
-    input:
-        node_data = rules.emerging_lineages.output.clade_data
-    output:
-        clade_data = "results/{build_name}/emerging_lineages.json"
-    benchmark:
-        "benchmarks/rename_emerging_lineages_{build_name}.txt"
-    run:
-        import json
-        with open(input.node_data, 'r', encoding='utf-8') as fh:
-            d = json.load(fh)
-            new_data = {}
-            for k,v in d['nodes'].items():
-                if "clade_membership" in v:
-                    new_data[k] = {"emerging_lineage": v["clade_membership"]}
-        with open(output.clade_data, "w") as fh:
-            json.dump({"nodes": new_data}, fh, indent=2)
 
 rule colors:
     message: "Constructing colors file"
@@ -1111,6 +1100,7 @@ rule colors:
         ordering = config["files"]["ordering"],
         color_schemes = config["files"]["color_schemes"],
         metadata="results/{build_name}/metadata_adjusted.tsv.xz",
+        clades = rules.clades.output.clade_data
     output:
         colors = "results/{build_name}/colors.tsv"
     log:
@@ -1129,6 +1119,7 @@ rule colors:
             --ordering {input.ordering} \
             --color-schemes {input.color_schemes} \
             --output {output.colors} \
+            --clade-node-data {input.clades} \
             --metadata {input.metadata} 2>&1 | tee {log}
         """
 
@@ -1359,8 +1350,8 @@ def _get_node_data_by_wildcards(wildcards):
         rules.refine.output.node_data,
         rules.ancestral.output.node_data,
         rules.translate.output.node_data,
-        rules.rename_emerging_lineages.output.clade_data,
         rules.clades.output.clade_data,
+        rules.emerging_lineages.output.clade_data,
         rules.recency.output.node_data,
         rules.traits.output.node_data,
         rules.logistic_growth.output.node_data,
@@ -1455,28 +1446,10 @@ rule export:
             --output {output.auspice_json} 2>&1 | tee {log}
         """
 
-rule add_branch_labels:
-    message: "Adding custom branch labels to the Auspice JSON"
-    input:
-        auspice_json = rules.export.output.auspice_json,
-        emerging_clades = rules.emerging_lineages.output.clade_data
-    output:
-        auspice_json = "results/{build_name}/ncov_with_branch_labels.json"
-    log:
-        "logs/add_branch_labels{build_name}.txt"
-    conda: config["conda_environment"]
-    shell:
-        """
-        python3 ./scripts/add_branch_labels.py \
-            --input {input.auspice_json} \
-            --emerging-clades {input.emerging_clades} \
-            --output {output.auspice_json}
-        """
-
 rule include_hcov19_prefix:
     message: "Rename strains to include hCoV-19/ prefix"
     input:
-        auspice_json = rules.add_branch_labels.output.auspice_json,
+        auspice_json = rules.export.output.auspice_json,
         tip_frequencies = rules.tip_frequencies.output.tip_frequencies_json
     output:
         auspice_json = "results/{build_name}/ncov_with_hcov19_prefix.json",
