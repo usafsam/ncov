@@ -19,7 +19,7 @@ rule sanitize_metadata:
     resources:
         mem_mb=2000
     shell:
-        """
+        r"""
         python3 scripts/sanitize_metadata.py \
             --metadata {input.metadata} \
             --metadata-id-columns {params.metadata_id_columns:q} \
@@ -53,7 +53,7 @@ rule combine_input_metadata:
         "benchmarks/combine_input_metadata.txt"
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/combine_metadata.py --metadata {input.metadata} --origins {params.origins} --output {output.metadata} 2>&1 | tee {log}
         """
 
@@ -87,7 +87,7 @@ rule align:
     resources:
         mem_mb=3000
     shell:
-        """
+        r"""
         python3 scripts/sanitize_sequences.py \
             --sequences {input.sequences} \
             --strip-prefixes {params.strain_prefixes:q} \
@@ -190,6 +190,8 @@ def _get_specific_subsampling_setting(setting, optional=False):
                     value = f"--exclude-ambiguous-dates-by {value}"
                 elif setting == 'group_by':
                     value = f"--group-by {value}"
+                elif setting == 'group_by_weights':
+                    value = f"--group-by-weights {value}"
         elif value is not None:
             # If is 'seq_per_group' or 'max_sequences' build subsampling setting,
             # need to return the 'argument' for augur
@@ -228,7 +230,7 @@ rule combine_sequences_for_subsampling:
         error_on_duplicate_strains="--error-on-duplicate-strains" if not config.get("combine_sequences_for_subsampling", {}).get("warn_about_duplicates") else "",
         strain_prefixes=config["strip_strain_prefixes"],
     shell:
-        """
+        r"""
         python3 scripts/sanitize_sequences.py \
                 --sequences {input} \
                 --strip-prefixes {params.strain_prefixes:q} \
@@ -255,7 +257,7 @@ rule index_sequences:
         strain_prefixes=config["strip_strain_prefixes"],
         sanitize_log="logs/sanitize_sequences_before_index.txt",
     shell:
-        """
+        r"""
         python3 scripts/sanitize_sequences.py \
             --sequences {input.sequences} \
             --strip-prefixes {params.strain_prefixes:q} \
@@ -294,6 +296,7 @@ rule subsample:
         "benchmarks/subsample_{build_name}_{subsample}.txt"
     params:
         group_by = _get_specific_subsampling_setting("group_by", optional=True),
+        group_by_weights = _get_specific_subsampling_setting("group_by_weights", optional=True),
         sequences_per_group = _get_specific_subsampling_setting("seq_per_group", optional=True),
         subsample_max_sequences = _get_specific_subsampling_setting("max_sequences", optional=True),
         sampling_scheme = _get_specific_subsampling_setting("sampling_scheme", optional=True),
@@ -310,7 +313,7 @@ rule subsample:
         mem_mb=4000
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur filter \
             --metadata {input.metadata} \
             --include {input.include} \
@@ -323,6 +326,7 @@ rule subsample:
             {params.exclude_ambiguous_dates_argument} \
             {params.priority_argument} \
             {params.group_by} \
+            {params.group_by_weights} \
             {params.sequences_per_group} \
             {params.subsample_max_sequences} \
             {params.sampling_scheme} \
@@ -347,7 +351,7 @@ rule extract_subsampled_sequences:
         mem_mb=4000
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur filter \
             --metadata {input.metadata} \
             --sequences {input.alignment} \
@@ -381,7 +385,7 @@ rule proximity_score:
         mem_mb=4000
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/get_distance_to_focal_set.py \
             --reference {input.reference} \
             --alignment {input.alignment} \
@@ -404,7 +408,7 @@ rule priority_score:
         Nweight = 0.003
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/priorities.py \
             --sequence-index {input.sequence_index} \
             --proximities {input.proximity} \
@@ -440,7 +444,7 @@ rule combine_samples:
         "benchmarks/subsample_regions_{build_name}.txt"
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur filter \
             --sequences {input.sequences} \
             --metadata {input.metadata} \
@@ -461,7 +465,7 @@ rule prepare_nextclade:
         name = config["nextclade_dataset"],
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         nextclade2 --version
         nextclade2 dataset get --name {params.name} --output-zip {output.nextclade_dataset}
         """
@@ -494,7 +498,7 @@ rule build_align:
     resources:
         mem_mb=3000
     shell:
-        """
+        r"""
         python3 scripts/sanitize_sequences.py \
             --sequences {input.sequences} \
             --strip-prefixes {params.strain_prefixes:q} \
@@ -520,7 +524,7 @@ rule join_metadata_and_nextclade_qc:
         "benchmarks/join_metadata_and_nextclade_qc_{build_name}.txt",
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/join-metadata-and-clades.py \
             {input.metadata} \
             {input.nextclade_qc} \
@@ -547,7 +551,7 @@ rule diagnostic:
         mem_mb=12000
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/diagnostic.py \
             --metadata {input.metadata} \
             --clock-filter {params.clock_filter} \
@@ -588,7 +592,7 @@ rule mask:
         mask_sites = config["mask"]["mask_sites"]
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/mask-alignment.py \
             --alignment {input.alignment} \
             --mask-from-beginning {params.mask_from_beginning} \
@@ -612,7 +616,7 @@ rule compress_build_align:
     log:
         "logs/compress_build_align_{build_name}.txt"
     shell:
-        """
+        r"""
         xz -c {input} > {output} 2> {log}
         """
 
@@ -631,7 +635,7 @@ rule index:
         "benchmarks/index_sequences_{build_name}.txt"
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur index \
             --sequences {input.sequences} \
             --output {output.sequence_index} 2>&1 | tee {log}
@@ -649,7 +653,7 @@ rule annotate_metadata_with_index:
         "benchmarks/annotate_metadata_with_index_{build_name}.txt",
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/annotate_metadata_with_index.py \
             --metadata {input.metadata} \
             --sequence-index {input.sequence_index} \
@@ -689,7 +693,7 @@ rule filter:
         mem_mb=500
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur filter \
             --sequences {input.sequences} \
             --metadata {input.metadata} \
@@ -729,7 +733,7 @@ if "run_pangolin" in config and config["run_pangolin"]:
         benchmark:
             "benchmarks/pangolineages_{build_name}.txt"
         shell: ## once pangolin fully supports threads, add `--threads {threads}` to the below (existing pango cli param)
-            """
+            r"""
             pangolin {input.alignment}\
                 --outdir {params.outdir} \
                 --outfile {params.csv_outfile} 2>&1 | tee {log}\
@@ -748,7 +752,7 @@ if "run_pangolin" in config and config["run_pangolin"]:
         benchmark:
             "benchmarks/make_pangolin_node_data_{build_name}.txt"
         shell:
-            """
+            r"""
             python3 scripts/make_pangolin_node_data.py \
             --pangolineages {input.lineages} \
             --node_data_outfile {output.node_data} 2>&1 | tee {log}\
@@ -774,7 +778,7 @@ rule adjust_metadata_regions:
         "benchmarks/adjust_metadata_regions_{build_name}.txt"
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/adjust_regional_meta.py \
             --region {params.region:q} \
             --metadata {input.metadata} \
@@ -802,7 +806,7 @@ rule tree:
         mem_mb=lambda wildcards, input: 40 * int(input.size / 1024 / 1024)
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur tree \
             --alignment {input.alignment} \
             --tree-builder-args {params.args} \
@@ -848,7 +852,7 @@ rule refine:
         timetree = "" if config["refine"].get("no_timetree", False) else "--timetree"
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur refine \
             --tree {input.tree} \
             --alignment {input.alignment} \
@@ -892,7 +896,7 @@ rule ancestral:
         mem_mb=lambda wildcards, input: 15 * int(input.size / 1024 / 1024)
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur ancestral \
             --tree {input.tree} \
             --alignment {input.alignment} \
@@ -923,7 +927,7 @@ rule translate:
         mem_mb=lambda wildcards, input: 15 * int(input.size / 1024 / 1024)
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/explicit_translation.py \
             --tree {input.tree} \
             --reference {input.reference} \
@@ -949,7 +953,7 @@ rule build_mutation_summary:
         basename = "aligned"
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/mutation_summary.py \
             --alignment {input.alignment} \
             --insertions {input.insertions} \
@@ -974,7 +978,7 @@ rule distances:
     conda:
         config["conda_environment"]
     shell:
-        """
+        r"""
         augur distance \
             --tree {input.tree} \
             --alignment {input.alignments} \
@@ -1008,7 +1012,7 @@ rule traits:
         mem_mb=12000
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur traits \
             --tree {input.tree} \
             --metadata {input.metadata} \
@@ -1035,7 +1039,7 @@ rule clade_files:
     benchmark:
         "benchmarks/clade_files_{build_name}.txt"
     shell:
-        """
+        r"""
         python3 scripts/rename_clades.py --input-clade-files {input.clade_files} \
             {params.name_mapping} \
             --output-clades {output}
@@ -1059,7 +1063,7 @@ rule clades:
         mem_mb=lambda wildcards, input: 3 * int(input.size / 1024 / 1024)
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur clades --tree {input.tree} \
             --mutations {input.nuc_muts} {input.aa_muts} \
             --clades {input.clades} \
@@ -1085,7 +1089,7 @@ rule emerging_lineages:
         mem_mb=lambda wildcards, input: 3 * int(input.size / 1024 / 1024)
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur clades --tree {input.tree} \
             --mutations {input.nuc_muts} {input.aa_muts} \
             --clades {input.emerging_lineages} \
@@ -1114,7 +1118,7 @@ rule colors:
         mem_mb=lambda wildcards, input: 5 * int(input.metadata.size / 1024 / 1024)
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/assign-colors.py \
             --ordering {input.ordering} \
             --color-schemes {input.color_schemes} \
@@ -1138,7 +1142,7 @@ rule recency:
         mem_mb=12000
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/construct-recency-from-submission-date.py \
             --metadata {input.metadata} \
             --output {output} 2>&1 | tee {log}
@@ -1167,7 +1171,7 @@ rule tip_frequencies:
         mem_mb=12000
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur frequencies \
             --method kde \
             --metadata {input.metadata} \
@@ -1203,7 +1207,7 @@ rule logistic_growth:
     resources:
         mem_mb=256
     shell:
-        """
+        r"""
         python3 scripts/calculate_delta_frequency.py \
             --tree {input.tree} \
             --frequencies {input.frequencies} \
@@ -1236,7 +1240,7 @@ rule mutational_fitness:
     resources:
         mem_mb=2000
     shell:
-        """
+        r"""
         augur distance \
             --tree {input.tree} \
             --alignment {input.alignments} \
@@ -1261,7 +1265,7 @@ rule calculate_epiweeks:
     params:
         metadata_id_columns=config["sanitize_metadata"]["metadata_id_columns"],
     shell:
-        """
+        r"""
         python3 scripts/calculate_epiweek.py \
             --metadata {input.metadata} \
             --metadata-id-columns {params.metadata_id_columns:q} \
@@ -1287,7 +1291,7 @@ rule find_clusters:
     resources:
         mem_mb=12000,
     shell:
-       """
+       r"""
        python3 scripts/find_clusters.py \
            --tree {input.tree} \
            --metadata {input.metadata} \
@@ -1415,7 +1419,7 @@ rule export:
         mem_mb=12000
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         augur export v2 \
             --tree {input.tree} \
             --metadata {input.metadata} \
@@ -1443,7 +1447,7 @@ rule include_hcov19_prefix:
     params:
         prefix = lambda w: "hCoV-19/" if config.get("include_hcov19_prefix", False) else ""
     shell:
-        """
+        r"""
         python3 ./scripts/include_prefix.py \
             --input-auspice {input.auspice_json} \
             --input-tip-frequencies {input.tip_frequencies} \
@@ -1468,7 +1472,7 @@ rule finalize:
         "benchmarks/fix_colorings_{build_name}.txt"
     conda: config["conda_environment"]
     shell:
-        """
+        r"""
         python3 scripts/fix-colorings.py \
             --input {input.auspice_json} \
             --output {output.auspice_json} 2>&1 | tee {log} &&
