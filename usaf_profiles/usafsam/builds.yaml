@@ -15,9 +15,12 @@ custom_rules:
 - usaf_profiles/usafsam/combine_schemes.smk
 
 inputs:
-- name: epicc
-  metadata: data/Epicc_all_through_211021.tsv
-  sequences: data/Epicc_all_through_211021.fas
+- name: genbank
+  metadata: https://data.nextstrain.org/files/ncov/open/metadata.tsv.zst
+  sequences: https://data.nextstrain.org/files/ncov/open/sequences.fasta.zst
+# - name: epicc
+#   metadata: data/Epicc_all_through_211021.tsv
+#   sequences: data/Epicc_all_through_211021.fas
 - name: gisaid
   metadata: data/metadata_2024-09-07_01-47.tsv.gz
   sequences: data/sequences_fasta_2024-09-07.tar.xz
@@ -54,24 +57,24 @@ builds:
     country: USA
 
   # Build with all EPICC sequences
-  epicc:
-    subsampling_scheme: epicc
-    region: North America
-    country: USA
+#  epicc:
+#    subsampling_scheme: epicc
+#    region: North America
+#    country: USA
 
   # Build with only USAFSAM sequences submitted to GISAID
   usafsam-only:
     subsampling_scheme: usafsam-only
 
   # Build with only EPICC sequences
-  epicc-only:
-    subsampling_scheme: epicc-only
+#  epicc-only:
+#    subsampling_scheme: epicc-only
 
 # Ensure inclusion of all the EPICC samples
-filter:
-  epicc:
-    min_length: 5000 # Allow shorter (partial) genomes
-    skip_diagnostics: true # skip diagnostics (which can remove genomes) for this input
+#filter:
+#  epicc:
+#    min_length: 5000 # Allow shorter (partial) genomes
+#    skip_diagnostics: true # skip diagnostics (which can remove genomes) for this input
 
 # Define custom subsampling logic for county-level builds.
 subsampling:
@@ -86,7 +89,7 @@ subsampling:
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (gisaid == "yes")'
+        Medicine"]) & (gisaid == "yes" || genbank == "yes")'
 
     usafsam_late:
       # Use augur filter's query argument to filter strains with pandas-style logic expressions.
@@ -95,7 +98,7 @@ subsampling:
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (gisaid == "yes")'
+        Medicine"]) & (gisaid == "yes" || genbank == "yes")'
 
     usafsam:
       combine:
@@ -111,7 +114,7 @@ subsampling:
       query: --query '(submitting_lab != ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (gisaid == "yes")'
+        Medicine"]) & (gisaid == "yes" || genbank == "yes")'
       priorities:
         type: proximity
         focus: usafsam
@@ -125,7 +128,7 @@ subsampling:
       query: --query '(submitting_lab != ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (gisaid == "yes")'
+        Medicine"]) & (gisaid == "yes" || genbank == "yes")'
 
   usafsam-division:
     # Focal samples which have all USAFSAM specimens in a specific
@@ -137,13 +140,13 @@ subsampling:
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (division == "{division}") & (gisaid == "yes")'
+        Medicine"]) & (division == "{division}") & (gisaid == "yes" || genbank == "yes")'
 
     division_late:
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (division == "{division}") & (gisaid == "yes")'
+        Medicine"]) & (division == "{division}") & (gisaid == "yes" || genbank == "yes")'
 
     division:
       combine:
@@ -158,7 +161,7 @@ subsampling:
       query: --query '((submitting_lab != ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) | (division != "{division}")) & (gisaid == "yes")'
+        Medicine"]) | (division != "{division}")) & (gisaid == "yes" || genbank == "yes")'
       priorities:
         type: proximity
         focus: division
@@ -167,7 +170,7 @@ subsampling:
     contextual:
       group_by: region month
       max_sequences: 100
-      query: --query '(gisaid == "yes")'
+      query: --query '(gisaid == "yes" || genbank == "yes")'
 
   usafsam-country:
     # Focal samples which have all USAFSAM specimens in a specific country
@@ -178,13 +181,13 @@ subsampling:
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (country == "{country}") & (gisaid == "yes")'
+        Medicine"]) & (country == "{country}") & (gisaid == "yes" || genbank == "yes")'
 
     country_late:
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (country == "{country}") & (gisaid == "yes")'
+        Medicine"]) & (country == "{country}") & (gisaid == "yes" || genbank == "yes")'
 
     country:
       combine:
@@ -199,7 +202,7 @@ subsampling:
       query: --query '((submitting_lab != ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) | (country != "{country}")) & (gisaid == "yes")'
+        Medicine"]) | (country != "{country}")) & (gisaid == "yes" || genbank == "yes")'
       priorities:
         type: proximity
         focus: country
@@ -208,7 +211,7 @@ subsampling:
     contextual:
       group_by: region month
       max_sequences: 100
-      query: --query '(gisaid == "yes")'
+      query: --query '(gisaid == "yes" || genbank == "yes")'
 
   usafsam-noncountry:
     # Focal samples which have all USAFSAM specimens outside a specific country
@@ -219,13 +222,13 @@ subsampling:
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (country != "{country}") & (gisaid == "yes")'
+        Medicine"]) & (country != "{country}") & (gisaid == "yes" || genbank == "yes")'
 
     noncountry_late:
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (country != "{country}") & (gisaid == "yes")'
+        Medicine"]) & (country != "{country}") & (gisaid == "yes" || genbank == "yes")'
 
     noncountry:
       combine:
@@ -240,7 +243,7 @@ subsampling:
       query: --query '((submitting_lab != ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) | (country == "{country}")) & (gisaid == "yes")'
+        Medicine"]) | (country == "{country}")) & (gisaid == "yes" || genbank == "yes")'
       priorities:
         type: proximity
         focus: noncountry
@@ -249,27 +252,27 @@ subsampling:
     contextual:
       group_by: region month
       max_sequences: 100
-      query: --query '(gisaid == "yes")'
+      query: --query '(gisaid == "yes" || genbank == "yes")'
 
-  epicc:
-    # Focal samples for all EPICC samples
-    epicc-only:
-      query: --query '(epicc == "yes")'
-
-    # Samples genetically related to the samples above
-    epicc-related:
-      group_by: region month
-      max_sequences: 250
-      query: --query '(gisaid == "yes")'
-      priorities:
-        type: proximity
-        focus: epicc-only
-
-    # Fill out the rest of the globe
-    epicc-contextual:
-      group_by: region month
-      max_sequences: 250
-      query: --query '(gisaid == "yes")'
+#  epicc:
+#    # Focal samples for all EPICC samples
+#    epicc-only:
+#      query: --query '(epicc == "yes")'
+#
+#    # Samples genetically related to the samples above
+#    epicc-related:
+#      group_by: region month
+#      max_sequences: 250
+#      query: --query '(gisaid == "yes")'
+#      priorities:
+#        type: proximity
+#        focus: epicc-only
+#
+#    # Fill out the rest of the globe
+#    epicc-contextual:
+#      group_by: region month
+#      max_sequences: 250
+#      query: --query '(gisaid == "yes")'
 
   usafsam-only:
     # Same as the other USAFSAM build, but without any context
@@ -279,18 +282,18 @@ subsampling:
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (gisaid == "yes")'
+        Medicine"]) & (gisaid == "yes" || genbank == "yes")'
 
     usafsam_late:
       query: --query '(submitting_lab == ["United States Air Force School of Aerospace
         Medicine", "Public Health, United States Air Force School of Aerospace Medicine",
         "U.S. Air Force School of Aerospace Medicine", "US Air Force School of Aerospace
-        Medicine"]) & (gisaid == "yes")'
+        Medicine"]) & (gisaid == "yes" || genbank == "yes")'
 
-  epicc-only:
-    # Same as the other EPICC build, but without any context
-    epicc:
-      query: --query '(epicc == "yes")'
+#  epicc-only:
+#    # Same as the other EPICC build, but without any context
+#    epicc:
+#      query: --query '(epicc == "yes")'
 
 # Here, you can specify what type of auspice_config you want to use
 # and what description you want. These will apply to all the above builds.
